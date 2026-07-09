@@ -160,13 +160,15 @@ function processTrackingSearch(query, strings, lang, resultCard, errorBox) {
     // Animate Progress Steps
     const steps = document.querySelectorAll('.status-step');
     const stepBar = document.getElementById('stepProgressBar');
+    const totalSteps = steps.length || strings.steps.length;
+    const boundedStatus = Math.max(1, Math.min(orderData.status, totalSteps));
     
     steps.forEach((stepEl, idx) => {
       stepEl.className = 'status-step';
       
-      if (idx + 1 < orderData.status) {
+      if (idx + 1 < boundedStatus) {
         stepEl.classList.add('complete');
-      } else if (idx + 1 === orderData.status) {
+      } else if (idx + 1 === boundedStatus) {
         stepEl.classList.add('active');
       }
       
@@ -174,7 +176,7 @@ function processTrackingSearch(query, strings, lang, resultCard, errorBox) {
       const dot = stepEl.querySelector('.step-dot');
       const label = stepEl.querySelector('.step-label');
       
-      if (idx + 1 < orderData.status) {
+      if (idx + 1 < boundedStatus) {
         dot.innerHTML = '&#10003;'; // Checkmark
       } else {
         dot.textContent = idx + 1;
@@ -183,10 +185,11 @@ function processTrackingSearch(query, strings, lang, resultCard, errorBox) {
       label.textContent = strings.steps[idx];
     });
     
-    // Calculate progress bar width
-    const percentage = ((orderData.status - 1) / 3) * 100;
+    // Fill only inside the visual track, from step 1 to the current step.
+    const progress = totalSteps > 1 ? (boundedStatus - 1) / (totalSteps - 1) : 0;
+    stepBar.style.setProperty('--progress', 0);
     setTimeout(() => {
-      stepBar.style.width = `${percentage}%`;
+      stepBar.style.setProperty('--progress', progress);
     }, 100);
     
     resultCard.style.display = 'block';

@@ -623,6 +623,17 @@ details.faq-item[open] summary.faq-question::after {
   margin: 0;
 }
 
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
 /* Form Styling */
 .form-group {
   margin-bottom: 20px;
