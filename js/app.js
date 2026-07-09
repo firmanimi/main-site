@@ -1,5 +1,5 @@
 /**
- * FirmaNimi Technics Repair - Core App Logic
+ * Fast-Service Technics Repair - Core App Logic
  * Parses values.txt, updates services & prices dynamically, handles Captcha & Forms (with Airgap fallback)
  */
 
@@ -48,7 +48,7 @@ const STRINGS = {
     captchaError: 'Vigane turvakood! Palun proovige uuesti.',
     formSuccess: 'Täname! Teie sõnum on edastatud ja me võtame teiega peagi ühendust.',
     formError: 'Saatmise viga. Kontrollige võrguühendust või kasutage e-kirja saatmise võimalust.',
-    offlineSubject: 'FirmaNimi Remondipäring'
+    offlineSubject: 'Fast-Service Remondipäring'
   },
   EN: {
     from: 'from',
@@ -58,7 +58,7 @@ const STRINGS = {
     captchaError: 'Incorrect security code! Please try again.',
     formSuccess: 'Thank you! Your message has been sent. We will contact you shortly.',
     formError: 'Submission failed. Please check your network connection or use the direct email option.',
-    offlineSubject: 'FirmaNimi Repair Inquiry'
+    offlineSubject: 'Fast-Service Repair Inquiry'
   },
   RU: {
     from: 'от',
@@ -68,7 +68,7 @@ const STRINGS = {
     captchaError: 'Неверный проверочный код! Пожалуйста, попробуйте еще раз.',
     formSuccess: 'Спасибо! Ваше сообщение отправлено, мы свяжемся с вами в ближайшее время.',
     formError: 'Ошибка отправки. Проверьте подключение к сети или отправьте письмо напрямую.',
-    offlineSubject: 'FirmaNimi Запрос на ремонт'
+    offlineSubject: 'Fast-Service Запрос на ремонт'
   }
 };
 
@@ -282,7 +282,7 @@ function generateMathCaptcha(canvas) {
  * Contact Form Handler with Airgap/Offline Fallback Logic
  */
 const FORM_SUBMIT_URL = 'https://api.web3forms.com/submit'; // Configurable API endpoint
-const BUSINESS_EMAIL = 'info@firmanimi.ee';
+const BUSINESS_EMAIL = 'info@fastservice.ee';
 
 function initContactForm(lang) {
   const form = document.getElementById('contactForm');
@@ -319,7 +319,7 @@ function initContactForm(lang) {
     const issue = document.getElementById('issue_desc').value.trim();
     
     // Build raw email message content
-    const emailBodyText = `Remondipäring FirmaNimi:
+    const emailBodyText = `Remondipäring Fast-Service:
 ------------------------------
 Nimi: ${name}
 Kontakt: ${contact}

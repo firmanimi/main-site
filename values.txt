@@ -1,4 +1,4 @@
-# FirmaNimi Service Price & Time List
+# Fast-Service Service Price & Time List
 # Format: service_key = Price_Spec | Est_Time | Eng_Time | Rus_Time | Est_Name | Eng_Name | Rus_Name
 # Price_Spec can be a single number (e.g., 15), a range (e.g., 15-30), or a starting price (e.g., 80+)
 

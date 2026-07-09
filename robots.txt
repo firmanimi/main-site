@@ -1,8 +1,8 @@
-# Robots.txt for FirmaNimi.ee
+# Robots.txt for Fast-Service.ee
 # Optimized for Google, Bing, Yandex, and other major engines
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://firmanimi.ee/sitemap.xml
+Sitemap: https://fastservice.ee/sitemap.xml

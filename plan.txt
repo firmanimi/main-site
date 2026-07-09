@@ -1,6 +1,6 @@
 # Implementation Plan: Multi-Language Technics Repair Website
 
-Create a modern, premium, airgap-compatible website for **FirmaNimi** (TV and electronics repair) in three languages (Estonian, English, Russian). The site will support dynamic price extraction from `values.txt`, a layout toggle (basic vs. order tracker), a self-hosted client-side captcha, and a complete offline-first architecture.
+Create a modern, premium, airgap-compatible website for **Fast-Service** (TV and electronics repair) in three languages (Estonian, English, Russian). The site will support dynamic price extraction from `values.txt`, a layout toggle (basic vs. order tracker), a self-hosted client-side captcha, and a complete offline-first architecture.
 
 ## Design Concept
 - **Theme**: Dark glassmorphism with high-end neon accents (indigo/violet & electric blue), clean micro-interactions, smooth hover transitions, and a premium modern sans-serif system font stack.
@@ -54,7 +54,7 @@ Create a modern, premium, airgap-compatible website for **FirmaNimi** (TV and el
 ### 1. Dynamic Value Extraction (`values.txt`)
 We will use an extended, clean INI-like text format inside `values.txt` that defines both price specifications (ranges or starting prices) and estimated times in three languages:
 ```ini
-# FirmaNimi Service Price & Time List
+# Fast-Service Service Price & Time List
 # Format: service_key = Price_Spec | Est_Time | Eng_Time | Rus_Time | Est_Name | Eng_Name | Rus_Name
 # Price_Spec can be a single number (e.g., 15), a range (e.g., 15-30), or a starting price (e.g., 80+)
 
@@ -111,8 +111,8 @@ crossover_matching = 90+ | 2-4 päeva | 2-4 days | 2-4 дня | Kõlarite filtri
   - We will use a pure client-side JavaScript handler that sends the form data to an external form service (such as **Web3Forms** or **Formspree**).
   - A configurable URL endpoint will be defined in `js/app.js` (e.g., `const FORM_SUBMIT_URL = 'https://api.web3forms.com/submit'`).
   - **Airgap Fallback Handler**: If the submit fetch request fails (e.g., because the website is hosted in a strict airgapped network without internet access), the system will catch the network error and show an elegant modal:
-    - *"Võrguühendus puudub. Palun kopeerige andmed või klõpsake allolevat nuppu, et saata e-kiri otse aadressile info@firmanimi.ee"* (No network connection. Please copy the data or click the button below to send an email directly to info@firmanimi.ee).
-    - It will offer a beautifully styled action button that opens their default mail client using a pre-populated `mailto:info@firmanimi.ee?subject=Remondipäring&body=...` query string containing their form details.
+    - *"Võrguühendus puudub. Palun kopeerige andmed või klõpsake allolevat nuppu, et saata e-kiri otse aadressile info@fastservice.ee"* (No network connection. Please copy the data or click the button below to send an email directly to info@fastservice.ee).
+    - It will offer a beautifully styled action button that opens their default mail client using a pre-populated `mailto:info@fastservice.ee?subject=Remondipäring&body=...` query string containing their form details.
 - **Self-Hosted Captcha**:
   - A custom self-hosted mathematical or slide-to-verify captcha generated dynamically via client-side JavaScript (no external APIs).
   - Draws a randomized math question (e.g. `7 + 6 = ?`) inside a canvas element or styled SVG container to block web bots.

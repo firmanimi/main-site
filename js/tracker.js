@@ -1,5 +1,5 @@
 /**
- * FirmaNimi Order Tracker Controller
+ * Fast-Service Order Tracker Controller
  * Handles interactive demo tracking timeline step-by-step visualizations
  */
 
