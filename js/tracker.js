@@ -4,8 +4,48 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageDropdown();
   initOrderTracker();
 });
+
+function initLanguageDropdown() {
+  document.querySelectorAll('.lang-selector').forEach(selector => {
+    const button = selector.querySelector('.lang-btn');
+    const dropdown = selector.querySelector('.lang-dropdown');
+    if (!button || !dropdown) return;
+
+    button.type = 'button';
+    button.setAttribute('aria-haspopup', 'true');
+    button.setAttribute('aria-expanded', 'false');
+
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const shouldOpen = !selector.classList.contains('open');
+      closeLanguageDropdowns();
+      selector.classList.toggle('open', shouldOpen);
+      button.setAttribute('aria-expanded', String(shouldOpen));
+    });
+
+    selector.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        selector.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+        button.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeLanguageDropdowns);
+}
+
+function closeLanguageDropdowns() {
+  document.querySelectorAll('.lang-selector.open').forEach(selector => {
+    selector.classList.remove('open');
+    const button = selector.querySelector('.lang-btn');
+    if (button) button.setAttribute('aria-expanded', 'false');
+  });
+}
 
 // Localization database for tracking results
 const TRACKER_STRINGS = {

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize dynamic components
   initPricingAndServices(lang, relPrefix);
   initLanguageSwitcher(lang);
+  initLanguageDropdown();
   initCaptcha();
   initContactForm(lang);
 });
@@ -207,6 +208,7 @@ function initLanguageSwitcher(currentLang) {
   const switcher = document.querySelector('.lang-selector');
   if (!switcher) return;
   
+  const path = window.location.pathname;
   const currentFilename = window.location.pathname.split('/').pop() || 'index.html';
   
   // Map buttons inside switcher dropdown
@@ -214,11 +216,53 @@ function initLanguageSwitcher(currentLang) {
   const enLink = document.querySelector('.lang-link-en');
   const ruLink = document.querySelector('.lang-link-ru');
   
-  const inSubfolder = (currentLang !== 'ET');
+  const inSubfolder = path.includes('/est/') || path.includes('/eng/') || path.includes('/rus/');
   
-  if (etLink) etLink.href = inSubfolder ? `../${currentFilename}` : currentFilename;
-  if (enLink) enLink.href = inSubfolder ? `../eng/${currentFilename}` : `eng/${currentFilename}`;
-  if (ruLink) ruLink.href = inSubfolder ? `../rus/${currentFilename}` : `rus/${currentFilename}`;
+  if (etLink) etLink.href = path.includes('/est/') || !inSubfolder ? currentFilename : `../est/${currentFilename}`;
+  if (enLink) enLink.href = path.includes('/eng/') ? currentFilename : (inSubfolder ? `../eng/${currentFilename}` : `eng/${currentFilename}`);
+  if (ruLink) ruLink.href = path.includes('/rus/') ? currentFilename : (inSubfolder ? `../rus/${currentFilename}` : `rus/${currentFilename}`);
+}
+
+/**
+ * Make the language dropdown work on hover, click/touch, keyboard focus, and outside clicks.
+ */
+function initLanguageDropdown() {
+  document.querySelectorAll('.lang-selector').forEach(selector => {
+    const button = selector.querySelector('.lang-btn');
+    const dropdown = selector.querySelector('.lang-dropdown');
+    if (!button || !dropdown) return;
+
+    button.type = 'button';
+    button.setAttribute('aria-haspopup', 'true');
+    button.setAttribute('aria-expanded', 'false');
+
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const shouldOpen = !selector.classList.contains('open');
+      closeLanguageDropdowns();
+      selector.classList.toggle('open', shouldOpen);
+      button.setAttribute('aria-expanded', String(shouldOpen));
+    });
+
+    selector.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        selector.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+        button.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeLanguageDropdowns);
+}
+
+function closeLanguageDropdowns() {
+  document.querySelectorAll('.lang-selector.open').forEach(selector => {
+    selector.classList.remove('open');
+    const button = selector.querySelector('.lang-btn');
+    if (button) button.setAttribute('aria-expanded', 'false');
+  });
 }
 
 /**

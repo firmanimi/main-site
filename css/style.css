@@ -83,13 +83,6 @@ h1, h2, h3, h4 {
   text-shadow: none;
 }
 
-.gold-glow {
-  background: linear-gradient(135deg, #0f172a 20%, #2563eb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-}
-
 /* Page Containers */
 .container {
   max-width: 1200px;
@@ -211,7 +204,9 @@ header {
   z-index: 110;
 }
 
-.lang-selector:hover .lang-dropdown {
+.lang-selector:hover .lang-dropdown,
+.lang-selector:focus-within .lang-dropdown,
+.lang-selector.open .lang-dropdown {
   display: flex;
 }
 
@@ -290,18 +285,6 @@ header {
 .btn-secondary:hover {
   background: #f8fafc;
   border-color: var(--border-focus);
-}
-
-.btn-gold {
-  background: var(--accent-violet);
-  color: #ffffff;
-  font-weight: 700;
-  box-shadow: var(--shadow-glow-violet);
-}
-
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px -24px rgba(37, 99, 235, 0.9);
 }
 
 /* Glass Cards System */
@@ -522,16 +505,6 @@ details.faq-item[open] summary.faq-question::after {
 /* Audiophile Page Core Styling */
 .audiophile-hero {
   border-bottom: 1px solid var(--border-color);
-}
-
-.gold-border {
-  border-color: var(--border-color);
-}
-
-.gold-icon {
-  background: #eff6ff;
-  color: var(--accent-violet);
-  border-color: #bfdbfe;
 }
 
 .audiophile-reassurance {
