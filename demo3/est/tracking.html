@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast-Service – Tellimuse Jälgimine & Elektroonika Remont Tallinnas</title>
+  <meta name="description" content="Jälgi oma teleri või helitehnika remondi staatust reaalajas. Professionaalne elektroonika remont Tallinnas, 6-kuuline garantii.">
+  <link rel="canonical" href="https://fastservice.ee/est/tracking.html">
+  
+  <!-- Hreflang Tags for Multi-language SEO -->
+  <link rel="alternate" hreflang="et" href="https://fastservice.ee/est/tracking.html">
+  <link rel="alternate" hreflang="en" href="https://fastservice.ee/eng/tracking.html">
+  <link rel="alternate" hreflang="ru" href="https://fastservice.ee/rus/tracking.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Fast-Service – Tellimuse Jälgimine ja Remondi Staatus">
+  <meta property="og:description" content="Sisestage oma tellimuse number ja jälgige remonditööde seisu reaalajas.">
+  <meta property="og:image" content="../img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fastservice.ee/est/tracking.html">
+  
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tracker.css">
+</head>
+<body class="design-overhaul">
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="url(#header_grad)" />
+          <path d="M35 30 H65 V42 H47 V50 H60 V62 H47 V75 H35 Z" fill="#FFFFFF" />
+          <circle cx="65" cy="65" r="10" fill="#D97706" />
+          <defs>
+            <linearGradient id="header_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7C3AED" />
+              <stop offset="100%" stop-color="#2563EB" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Fast-Service</span>
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html">Pealeht</a></li>
+          <li class="nav-item"><a href="audiophile.html">Hi-Fi & Audiofiilne</a></li>
+          <li class="nav-item"><a href="index.html#teenused">Hinnakiri</a></li>
+          <li class="nav-item active"><a href="tracking.html">Tellimuse jälgimine</a></li>
+          <li class="nav-item"><a href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-controls">
+        <div class="lang-switcher" aria-label="Language selector">
+          <a href="tracking.html" class="lang-link lang-link-et active" lang="et">EST</a>
+          <a href="../eng/tracking.html" class="lang-link lang-link-en" lang="en">ENG</a>
+          <a href="../rus/tracking.html" class="lang-link lang-link-ru" lang="ru">RUS</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    
+    <!-- Hero Section -->
+    <section class="hero container hero-lab">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Remondilabor Tallinnas</span>
+        <h1><span class="title-glow">Jälgi tellimuse staatust</span></h1>
+        <p>Sisestage meilt saadud kviitungi number, et kontrollida oma seadme diagnostika või remonditööde seisu reaalajas.</p>
+        
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+          <div class="device-frame">
+            <div class="device-topline"><span></span><span></span><span></span></div>
+            <div class="device-screen">
+              <div class="scan-line"></div>
+              <div class="pulse-ring"></div>
+              <div class="metric-card metric-main"><strong>Reaalajas remondistaatus</strong><span>Diagnostika → Valmis</span></div>
+              <div class="metric-card metric-a"><strong>ESD kaitse</strong><span>24h</span></div>
+              <div class="metric-card metric-b"><strong>Komponendi test</strong><span>OK</span></div>
+              <div class="metric-card metric-c"><strong>Garantiiakt</strong><span>6M</span></div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Interactive Order Status Tracker Panel -->
+    <section class="container tracker-section">
+      <div class="glass-card tracker-wrapper tracker-console">
+        <div class="tracker-box">
+          <form id="trackerForm">
+            <div class="tracker-input-group">
+              <input type="text" id="trackerInput" class="form-control" placeholder="Sisesta tellimuse kood (nt. FN-TV-2026)" required style="text-transform: uppercase;">
+              <button type="submit" class="btn btn-primary">Jälgi remonti</button>
+            </div>
+          </form>
+          <div id="trackerError" class="form-status error" style="margin-top: 15px; margin-bottom: 0;"></div>
+          
+          <div class="tracker-demo-tip" style="margin-top: 15px;">
+            &#128161; <strong>Proovige süsteemi!</strong> Klõpsake koodile: 
+            <span class="tracker-demo-code">FN-TV-2026</span> või 
+            <span class="tracker-demo-code">FN-AUDIO-8041</span>.
+          </div>
+        </div>
+
+        <!-- Tracking Results Card -->
+        <div id="trackingResult" class="tracking-card">
+          <div class="tracking-header">
+            <div class="tracking-info">
+              <h3 id="resOrderId">FN-2026</h3>
+              <p><span id="resDevice">Samsung QLED TV</span></p>
+            </div>
+            <div>
+              <span id="resStatusBadge" class="status-badge received">Vastu võetud</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Steps Timeline -->
+          <div class="status-steps">
+            <div id="stepProgressBar" class="step-bar"></div>
+            
+            <div class="status-step active">
+              <div class="step-dot">1</div>
+              <div class="step-label">Vastu võetud</div>
+            </div>
+            
+            <div class="status-step">
+              <div class="step-dot">2</div>
+              <div class="step-label">Diagnostika</div>
+            </div>
+            
+            <div class="status-step">
+              <div class="step-dot">3</div>
+              <div class="step-label">Remondis</div>
+            </div>
+            
+            <div class="status-step">
+              <div class="step-dot">4</div>
+              <div class="step-label">Valmis</div>
+            </div>
+          </div>
+
+          <div class="tracking-details-box">
+            <table class="tracking-table">
+              <tr>
+                <td class="label-td">Seade:</td>
+                <td id="resDevice" class="value-td">—</td>
+              </tr>
+              <tr>
+                <td class="label-td">Vastuvõtt:</td>
+                <td id="resReceived" class="value-td">—</td>
+              </tr>
+              <tr>
+                <td class="label-td">Valmimise tähtaeg:</td>
+                <td id="resReady" class="value-td">—</td>
+              </tr>
+              <tr>
+                <td class="label-td">Detailne staatus:</td>
+                <td id="resDetails" class="value-td">—</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Fast-Service</h3>
+        <p>Professionaalne elektroonika remont Tallinnas. ESD-labor, garantii ja kaasaegsed vahendid.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Kasulikku</h4>
+        <ul>
+          <li><a href="index.html">Tavaline veebileht</a></li>
+          <li><a href="audiophile.html">Hi-Fi Audiofiilne remont</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Kaart</h4>
+        <ul>
+          <li>Vikerlase tn 3, 13615 Tallinn</li>
+          <li>E-R 09:00 - 18:00<br>L-P suletud</li>
+          <li>
+            <a href="https://maps.app.goo.gl/twXrAPbztFN6f3Qq6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; font-size: 13px; min-height: 38px; padding: 6px 16px;">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" style="margin-right: 6px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Ava Google Mapsis
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Fast-Service OÜ. Kõik õigused kaitstud.</p>
+      <div>
+        <a href="gdpr.html" style="margin-right: 15px;">Privaatsustingimused (GDPR)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/tracker.js"></script>
+</body>
+</html>
