@@ -262,193 +262,156 @@
   }
 }
 
-/* DEMO6 technical tracker */
-.tech-tracker,
+/* DEMO4 modern light tracker */
 .tracker-wrapper {
-  max-width: 900px;
+  max-width: 760px;
 }
 
-.tech-tracker {
-  background: #111820;
-  position: relative;
-}
-
-.tech-tracker::before {
-  background:
-    linear-gradient(rgba(0,211,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,211,255,0.04) 1px, transparent 1px);
-  background-size: 22px 22px;
-  content: "";
-  inset: 0;
-  opacity: 0.8;
-  pointer-events: none;
-  position: absolute;
-}
-
-.tech-tracker > * {
-  position: relative;
-  z-index: 1;
+.tracker-box {
+  margin-bottom: 30px;
 }
 
 .tracker-input-group {
-  background: #0d1117;
-  border: 1px solid #2f3b48;
-  border-radius: 12px;
+  background: #f6faff;
+  border: 1px solid #d8e7f7;
+  border-radius: 24px;
   gap: 10px;
   padding: 10px;
 }
 
 .tracker-input-group .form-control {
-  background: #151b23;
+  background: #ffffff;
 }
 
 .tracker-demo-tip {
-  background: rgba(255, 176, 32, 0.09);
-  border-color: rgba(255, 176, 32, 0.24);
-  border-radius: 10px;
-  color: #ffd58a;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  font-size: 12px;
+  background: #eaf3ff;
+  border-color: #cfe1f4;
+  border-radius: 18px;
+  color: #36516d;
   font-weight: 700;
+  padding: 14px 16px;
 }
 
 .tracker-demo-code {
-  color: #9eefff;
+  color: #1d6df2;
   font-weight: 900;
+  text-decoration-color: rgba(29, 109, 242, 0.34);
 }
 
 .tracker-demo-code:hover {
-  color: #46f0a7;
+  color: #102033;
 }
 
 .tracking-card {
-  background: #0d1117;
-  border: 1px solid #2f3b48;
-  border-radius: 14px;
-  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #d8e7f7;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgba(22, 93, 170, 0.1);
+  padding: 24px;
 }
 
 .tracking-header {
-  border-bottom-color: #2f3b48;
+  border-bottom-color: #dfeaf6;
 }
 
 .tracking-info h3 {
-  color: #e6edf3;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  font-size: 22px;
+  color: #102033;
+  font-size: 24px;
+  letter-spacing: -0.02em;
 }
 
 .tracking-info p {
-  color: #8b9aaa;
+  color: #61758d;
 }
 
 .status-steps::after {
-  background: #2f3b48;
+  background: #d8e7f7;
 }
 
 .step-bar {
-  background: linear-gradient(90deg, #00d3ff 0%, #46f0a7 100%);
-  box-shadow: 0 0 20px rgba(0, 211, 255, 0.18);
+  background: linear-gradient(90deg, #1d6df2 0%, #0ea5e9 100%);
+  box-shadow: 0 8px 20px rgba(29, 109, 242, 0.18);
 }
 
 .step-dot {
-  background: #151b23;
-  border-color: #2f3b48;
-  color: #8b9aaa;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  background: #ffffff;
+  border-color: #cfe1f4;
+  color: #61758d;
+  box-shadow: 0 8px 18px rgba(22, 93, 170, 0.1);
 }
 
 .status-step.complete .step-dot {
-  background: #00d3ff;
-  border-color: #00d3ff;
-  color: #061017;
+  background: #1d6df2;
+  border-color: #1d6df2;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(29, 109, 242, 0.22);
 }
 
 .status-step.active .step-dot {
-  background: #ffb020;
-  border-color: #ffb020;
-  color: #061017;
-  box-shadow: 0 0 24px rgba(255, 176, 32, 0.22);
+  background: #eaf3ff;
+  border-color: #0ea5e9;
+  color: #102033;
+  box-shadow: 0 14px 28px rgba(14, 165, 233, 0.2);
 }
 
 .step-label {
-  color: #8b9aaa;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
+  color: #61758d;
+  font-weight: 850;
 }
 
 .status-step.complete .step-label,
 .status-step.active .step-label {
-  color: #e6edf3;
+  color: #102033;
 }
 
 .status-badge {
-  border-radius: 8px;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  font-size: 12px;
+  border-radius: 999px;
   font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .status-badge.received {
-  background: rgba(0, 211, 255, 0.1);
-  border-color: rgba(0, 211, 255, 0.32);
-  color: #9eefff;
+  background: #eaf3ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
 }
 
 .status-badge.diagnostic {
-  background: rgba(70, 240, 167, 0.1);
-  border-color: rgba(70, 240, 167, 0.32);
-  color: #9affcf;
+  background: #ecfeff;
+  border-color: #a5f3fc;
+  color: #0e7490;
 }
 
 .status-badge.repairing {
-  background: rgba(255, 176, 32, 0.12);
-  border-color: rgba(255, 176, 32, 0.34);
-  color: #ffd58a;
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #9a3412;
 }
 
 .status-badge.pickup {
-  background: rgba(70, 240, 167, 0.14);
-  border-color: rgba(70, 240, 167, 0.38);
-  color: #46f0a7;
+  background: #ecfdf5;
+  border-color: #bbf7d0;
+  color: #166534;
 }
 
 .tracking-details-box {
-  border-top-color: #2f3b48;
-}
-
-.tracking-table {
-  border: 1px solid #2f3b48;
+  border-top-color: #dfeaf6;
 }
 
 .tracking-table td {
-  border-bottom: 1px solid #2f3b48;
-  padding: 12px;
+  border-bottom: 1px solid #edf4fb;
 }
 
 .tracking-table tr:last-child td {
   border-bottom: 0;
 }
 
-.tracking-table td + td {
-  border-left: 1px solid #2f3b48;
-}
-
 .tracking-table td.label-td {
-  background: #111820;
-  color: #8b9aaa;
-  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
+  color: #61758d;
+  font-weight: 850;
 }
 
 .tracking-table td.value-td {
-  color: #e6edf3;
+  color: #102033;
 }
 
 @media (max-width: 640px) {
@@ -457,10 +420,6 @@
   }
 
   .tracking-card {
-    padding: 16px;
-  }
-
-  .tracking-table td + td {
-    border-left: 0;
+    padding: 18px;
   }
 }

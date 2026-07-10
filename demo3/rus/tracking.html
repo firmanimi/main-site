@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast-Service – Track Order Status & Electronics Repair</title>
-  <meta name="description" content="Track your TV or Hi-Fi repair status in real-time. Professional electronics repair in Tallinn, 6-month warranty.">
-  <link rel="canonical" href="https://fastservice.ee/eng/tracking.html">
+  <title>Fast-Service – Отследить Статус Ремонта Электроники</title>
+  <meta name="description" content="Узнайте текущий статус ремонта вашего телевизора или аудиосистемы в реальном времени. Ремонт электроники в Таллине с гарантией 6 месяцев.">
+  <link rel="canonical" href="https://fastservice.ee/rus/tracking.html">
   
   <!-- Hreflang Tags for Multi-language SEO -->
   <link rel="alternate" hreflang="et" href="https://fastservice.ee/est/tracking.html">
@@ -16,22 +16,22 @@
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   
   <!-- OpenGraph Metadata -->
-  <meta property="og:title" content="Fast-Service – Order Tracking and Repair Status">
-  <meta property="og:description" content="Enter your receipt code and follow the repair progress in real-time.">
+  <meta property="og:title" content="Fast-Service – Проверить статус заказа онлайн">
+  <meta property="og:description" content="Введите номер вашей квитанции и следите за ходом ремонта в реальном времени.">
   <meta property="og:image" content="../img/og-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fastservice.ee/eng/tracking.html">
+  <meta property="og:url" content="https://fastservice.ee/rus/tracking.html">
   
   <!-- Local Styles -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/tracker.css">
 </head>
-<body class="tech-body">
+<body>
 
   <!-- Main Header -->
-  <header class="tech-header">
+  <header>
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -50,66 +50,49 @@
       
       <nav>
         <ul class="nav-links">
-          <li class="nav-item"><a href="index.html">Home</a></li>
-          <li class="nav-item"><a href="audiophile.html">Hi-Fi & Audiophile</a></li>
-          <li class="nav-item"><a href="index.html#teenused">Prices</a></li>
-          <li class="nav-item active"><a href="tracking.html">Tracking</a></li>
-          <li class="nav-item"><a href="index.html#kontakt">Contact</a></li>
+          <li class="nav-item"><a href="index.html">Главная</a></li>
+          <li class="nav-item"><a href="audiophile.html">Hi-Fi & Аудиофилам</a></li>
+          <li class="nav-item"><a href="index.html#teenused">Цены</a></li>
+          <li class="nav-item active"><a href="tracking.html">Отслеживание</a></li>
+          <li class="nav-item"><a href="index.html#kontakt">Контакты</a></li>
         </ul>
       </nav>
       
       <div class="header-controls">
         <div class="lang-switcher" aria-label="Language selector">
           <a href="../est/tracking.html" class="lang-link lang-link-et" lang="et">EST</a>
-          <a href="tracking.html" class="lang-link lang-link-en active" lang="en">ENG</a>
-          <a href="../rus/tracking.html" class="lang-link lang-link-ru" lang="ru">RUS</a>
+          <a href="../eng/tracking.html" class="lang-link lang-link-en" lang="en">ENG</a>
+          <a href="tracking.html" class="lang-link lang-link-ru active" lang="ru">RUS</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="tech-main">
+  <main>
     
     <!-- Hero Section -->
-    <section class="hero container tech-hero">
-      <div class="tech-hero-copy">
-        <span class="tech-tag">ESD SERVICE LAB / TALLINN</span>
-        <h1><span class="title-glow">Track Order Status</span></h1>
-        <p>Enter the ticket number received from us to check the real-time diagnostics or repair state of your device.</p>
-        
-      </div>
-      <div class="lab-instrument" aria-hidden="true">
-        <div class="instrument-header"><span>WORK ORDER STATUS</span><i>ONLINE</i></div>
-        <div class="instrument-grid">
-          <div class="signal-screen"><div class="wave wave-a"></div><div class="wave wave-b"></div></div>
-          <div class="status-stack">
-            <div><span>PSU CHECK</span><strong>24.0V</strong></div>
-            <div><span>OSCILLOSCOPE</span><strong>OK</strong></div>
-            <div><span>LOAD TEST</span><strong>72H</strong></div>
-            <div><span>QC PASS</span><strong>READY</strong></div>
-          </div>
-        </div>
-        <div class="instrument-metrics"><span>ESD protected</span><span>Component measurement</span><span>Load testing</span></div>
-      </div>
+    <section class="hero container">
+      <h1><span class="title-glow">Статус выполнения заказа</span></h1>
+      <p>Введите номер квитанции, выданной в нашей мастерской, чтобы в реальном времени узнать текущее состояние ремонта вашей техники.</p>
     </section>
 
     <!-- Interactive Order Status Tracker Panel -->
     <section class="container tracker-section">
-      <div class="glass-card tracker-wrapper tech-tracker">
+      <div class="glass-card tracker-wrapper">
         <div class="tracker-box">
           <form id="trackerForm">
             <div class="tracker-input-group">
-              <input type="text" id="trackerInput" class="form-control" placeholder="Enter order code (e.g. FN-TV-2026)" required style="text-transform: uppercase;">
-              <button type="submit" class="btn btn-primary">Track Repair</button>
+              <input type="text" id="trackerInput" class="form-control" placeholder="Введите код заказа (например, FN-TV-2026)" required style="text-transform: uppercase;">
+              <button type="submit" class="btn btn-primary">Отследить</button>
             </div>
           </form>
           <div id="trackerError" class="form-status error" style="margin-top: 15px; margin-bottom: 0;"></div>
           
           <div class="tracker-demo-tip" style="margin-top: 15px;">
-            &#128161; <strong>Try the demo!</strong> Click code: 
-            <span class="tracker-demo-code">FN-TV-2026</span> (Repairing) or 
-            <span class="tracker-demo-code">FN-AUDIO-8041</span> (Ready for pickup). 
-            You can also input any other numbers formatted as <em>FN-XXXX</em>.
+            &#128161; <strong>Протестируйте систему!</strong> Нажмите на код: 
+            <span class="tracker-demo-code">FN-TV-2026</span> (В ремонте) или 
+            <span class="tracker-demo-code">FN-AUDIO-8041</span> (Готов к выдаче). 
+            Вы также можете ввести любой другой номер в формате <em>FN-XXXX</em>.
           </div>
         </div>
 
@@ -121,7 +104,7 @@
               <p><span id="resDevice">Samsung QLED TV</span></p>
             </div>
             <div>
-              <span id="resStatusBadge" class="status-badge received">Received</span>
+              <span id="resStatusBadge" class="status-badge received">Принят</span>
             </div>
           </div>
 
@@ -131,41 +114,41 @@
             
             <div class="status-step active">
               <div class="step-dot">1</div>
-              <div class="step-label">Received</div>
+              <div class="step-label">Принят</div>
             </div>
             
             <div class="status-step">
               <div class="step-dot">2</div>
-              <div class="step-label">Diagnostics</div>
+              <div class="step-label">Диагностика</div>
             </div>
             
             <div class="status-step">
               <div class="step-dot">3</div>
-              <div class="step-label">Repairing</div>
+              <div class="step-label">В ремонте</div>
             </div>
             
             <div class="status-step">
               <div class="step-dot">4</div>
-              <div class="step-label">Ready</div>
+              <div class="step-label">Готов</div>
             </div>
           </div>
 
           <div class="tracking-details-box">
             <table class="tracking-table">
               <tr>
-                <td class="label-td">Device:</td>
+                <td class="label-td">Устройство:</td>
                 <td id="resDevice" class="value-td">—</td>
               </tr>
               <tr>
-                <td class="label-td">Received:</td>
+                <td class="label-td">Принято:</td>
                 <td id="resReceived" class="value-td">—</td>
               </tr>
               <tr>
-                <td class="label-td">Estimated Ready:</td>
+                <td class="label-td">Ожидаемая готовность:</td>
                 <td id="resReady" class="value-td">—</td>
               </tr>
               <tr>
-                <td class="label-td">Detailed Status:</td>
+                <td class="label-td">Подробный статус:</td>
                 <td id="resDetails" class="value-td">—</td>
               </tr>
             </table>
@@ -181,7 +164,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <h3>Fast-Service</h3>
-        <p>Professional electronics repair in Tallinn. ESD laboratory, guarantee, and modern tools.</p>
+        <p>Ремонт электроники в Таллине. Антистатическая лаборатория, гарантия и оригинальные комплектующие.</p>
         <div class="social-links">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">
             <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
@@ -190,22 +173,22 @@
       </div>
       
       <div class="footer-links">
-        <h4>Useful Links</h4>
+        <h4>Разделы</h4>
         <ul>
-          <li><a href="index.html">Standard Webpage</a></li>
-          <li><a href="audiophile.html">Hi-Fi Audiophile repairs</a></li>
+          <li><a href="index.html">Обычный сайт</a></li>
+          <li><a href="audiophile.html">Hi-Fi Аудиофилам</a></li>
         </ul>
       </div>
 
       <div class="footer-links">
-        <h4>Location</h4>
+        <h4>Адрес</h4>
         <ul>
-          <li>Vikerlase tn 3, 13615 Tallinn</li>
-          <li>Mon-Fri 09:00 - 18:00<br>Sat-Sun Closed</li>
+          <li>Vikerlase tn 3, Таллин</li>
+          <li>Пн-Пт 09:00 - 18:00<br>Сб-Вс закрыто</li>
           <li>
             <a href="https://maps.app.goo.gl/twXrAPbztFN6f3Qq6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; font-size: 13px; min-height: 38px; padding: 6px 16px;">
               <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" style="margin-right: 6px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Open in Google Maps
+              Открыть в Google Maps
             </a>
           </li>
         </ul>
@@ -213,9 +196,9 @@
     </div>
     
     <div class="container footer-bottom">
-      <p>&copy; 2026 Fast-Service OÜ. All rights reserved.</p>
+      <p>&copy; 2026 Fast-Service OÜ. Все права защищены.</p>
       <div>
-        <a href="gdpr.html" style="margin-right: 15px;">Privacy Policy (GDPR)</a>
+        <a href="gdpr.html" style="margin-right: 15px;">Политика конфиденциальности (GDPR)</a>
       </div>
     </div>
   </footer>

@@ -27,10 +27,10 @@
   <!-- Local Styles -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="demo5-body">
 
   <!-- Main Header -->
-  <header class="audiophile-header">
+  <header class="demo5-sidebar audiophile-header">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -67,16 +67,32 @@
     </div>
   </header>
 
-  <main>
+  <main class="demo5-main">
     
     <!-- Hero Section -->
-    <section class="hero container audiophile-hero">
-      <h1><span class="title-glow">Специализированный Ремонт</span><br>Hi-Fi и High-End Аудиотехники</h1>
-      <p>Ваша звуковая система класса премиум заслуживает элитарного обслуживания. Мы предлагаем ремонт и точную настройку ламповых усилителей, проигрывателей винила, CD-дек и фильтров акустики.</p>
-      <div class="hero-actions">
+    <section class="hero container demo5-hero audiophile-hero">
+      <div class="ticket-copy">
+        <span class="demo5-kicker">МАСТЕРСКАЯ / ТАЛЛИНН</span>
+        <h1><span class="title-glow">Специализированный Ремонт</span><br>Hi-Fi и High-End Аудиотехники</h1>
+        <p>Ваша звуковая система класса премиум заслуживает элитарного обслуживания. Мы предлагаем ремонт и точную настройку ламповых усилителей, проигрывателей винила, CD-дек и фильтров акустики.</p>
+        <div class="hero-actions">
         <a href="#kontakt" class="btn btn-primary">Консультация специалиста</a>
         <a href="#audio-teenused" class="btn btn-secondary">Наши услуги</a>
       </div>
+      </div>
+      <aside class="ticket-board" aria-hidden="true">
+        <div class="ticket-stamp">МАСТЕРСКАЯ / ТАЛЛИНН</div>
+        <div class="ticket-card primary-ticket">
+          <span>Аудио контрольная карта</span>
+          <strong>Ticket #FS-2026</strong>
+        </div>
+        <div class="ticket-columns">
+          <div><span>01</span><strong>Принято</strong></div>
+          <div><span>02</span><strong>Тест</strong></div>
+          <div><span>03</span><strong>Выдача</strong></div>
+        </div>
+        <div class="ticket-note"><span>Очередь ремонта</span><strong>Гарантия 6 месяцев</strong></div>
+      </aside>
     </section>
 
     <!-- Why Choose Us Reassurance Section (Trust Elements) -->
@@ -117,7 +133,7 @@
         <h2>Цены на аудиофильские услуги</h2>
         <p>Цены автоматически обновляются из values.txt.</p>
       </div>
-      <div class="pricing-table-wrap">
+      <div class="pricing-table-wrap ledger-pricing">
         <table class="pricing-table">
           <thead>
             <tr>
@@ -154,7 +170,7 @@
 
     <!-- Contact section -->
     <section id="kontakt" class="container">
-      <div class="glass-card contact-container">
+      <div class="glass-card contact-container request-layout">
         
         <div class="contact-info">
           <h2>Проконсультироваться со специалистом</h2>

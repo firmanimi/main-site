@@ -27,10 +27,10 @@
   <!-- Local Styles -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="demo5-body">
 
   <!-- Main Header -->
-  <header class="audiophile-header">
+  <header class="demo5-sidebar audiophile-header">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -67,16 +67,32 @@
     </div>
   </header>
 
-  <main>
+  <main class="demo5-main">
     
     <!-- Hero Section -->
-    <section class="hero container audiophile-hero">
-      <h1><span class="title-glow">Specialized Repair of</span><br>Hi-Fi and Audiophile Equipment</h1>
-      <p>Your high-end audio setup deserves elite treatment. We offer precision repair, maintenance, and tuning of premium tube amplifiers, turntables, CD decks, and speakers.</p>
-      <div class="hero-actions">
+    <section class="hero container demo5-hero audiophile-hero">
+      <div class="ticket-copy">
+        <span class="demo5-kicker">WORKSHOP / TALLINN</span>
+        <h1><span class="title-glow">Specialized Repair of</span><br>Hi-Fi and Audiophile Equipment</h1>
+        <p>Your high-end audio setup deserves elite treatment. We offer precision repair, maintenance, and tuning of premium tube amplifiers, turntables, CD decks, and speakers.</p>
+        <div class="hero-actions">
         <a href="#kontakt" class="btn btn-primary">Request Audio Consultation</a>
         <a href="#audio-teenused" class="btn btn-secondary">View Audio Services</a>
       </div>
+      </div>
+      <aside class="ticket-board" aria-hidden="true">
+        <div class="ticket-stamp">WORKSHOP / TALLINN</div>
+        <div class="ticket-card primary-ticket">
+          <span>Audio control sheet</span>
+          <strong>Ticket #FS-2026</strong>
+        </div>
+        <div class="ticket-columns">
+          <div><span>01</span><strong>Accepted</strong></div>
+          <div><span>02</span><strong>Testing</strong></div>
+          <div><span>03</span><strong>Handover</strong></div>
+        </div>
+        <div class="ticket-note"><span>Repair queue</span><strong>6 month warranty</strong></div>
+      </aside>
     </section>
 
     <!-- Why Choose Us Reassurance Section -->
@@ -117,7 +133,7 @@
         <h2>Audiophile Services & Prices</h2>
         <p>Prices update automatically from values.txt.</p>
       </div>
-      <div class="pricing-table-wrap">
+      <div class="pricing-table-wrap ledger-pricing">
         <table class="pricing-table">
           <thead>
             <tr>
@@ -154,7 +170,7 @@
 
     <!-- Contact section -->
     <section id="kontakt" class="container">
-      <div class="glass-card contact-container">
+      <div class="glass-card contact-container request-layout">
         
         <div class="contact-info">
           <h2>Talk to an Audio Expert</h2>

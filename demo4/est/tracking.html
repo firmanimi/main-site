@@ -28,10 +28,10 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/tracker.css">
 </head>
-<body>
+<body class="demo5-body">
 
   <!-- Main Header -->
-  <header>
+  <header class="demo5-sidebar">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -68,17 +68,34 @@
     </div>
   </header>
 
-  <main>
+  <main class="demo5-main">
     
     <!-- Hero Section -->
-    <section class="hero container">
-      <h1><span class="title-glow">Jälgi tellimuse staatust</span></h1>
-      <p>Sisestage meilt saadud kviitungi number, et kontrollida oma seadme diagnostika või remonditööde seisu reaalajas.</p>
+    <section class="hero container demo5-hero">
+      <div class="ticket-copy">
+        <span class="demo5-kicker">TÖÖKODA / TALLINN</span>
+        <h1><span class="title-glow">Jälgi tellimuse staatust</span></h1>
+        <p>Sisestage meilt saadud kviitungi number, et kontrollida oma seadme diagnostika või remonditööde seisu reaalajas.</p>
+        
+      </div>
+      <aside class="ticket-board" aria-hidden="true">
+        <div class="ticket-stamp">TÖÖKODA / TALLINN</div>
+        <div class="ticket-card primary-ticket">
+          <span>Staatus töökaardil</span>
+          <strong>Ticket #FS-2026</strong>
+        </div>
+        <div class="ticket-columns">
+          <div><span>01</span><strong>Vastu võetud</strong></div>
+          <div><span>02</span><strong>Testimisel</strong></div>
+          <div><span>03</span><strong>Üleandmine</strong></div>
+        </div>
+        <div class="ticket-note"><span>Tööde järjekord</span><strong>Garantii 6 kuud</strong></div>
+      </aside>
     </section>
 
     <!-- Interactive Order Status Tracker Panel -->
     <section class="container tracker-section">
-      <div class="glass-card tracker-wrapper">
+      <div class="glass-card tracker-wrapper ticket-tracker">
         <div class="tracker-box">
           <form id="trackerForm">
             <div class="tracker-input-group">

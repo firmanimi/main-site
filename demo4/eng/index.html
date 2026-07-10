@@ -72,10 +72,10 @@
   }
   </script>
 </head>
-<body>
+<body class="demo5-body">
 
   <!-- Main Header -->
-  <header>
+  <header class="demo5-sidebar">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -113,18 +113,47 @@
     </div>
   </header>
 
-  <main>
+  <main class="demo5-main">
     
     <!-- Hero Section -->
-    <section class="hero container">
-      <h1><span class="title-glow">Professional Repair of</span><br>TVs and Electronics</h1>
-      <p>High-quality and reliable repair of televisions, Hi-Fi audio systems, and lighting equipment in Tallinn. Devices get a new life under the care of experts in our ESD-safe laboratory.</p>
-      <div class="hero-actions">
+    <section class="hero container demo5-hero">
+      <div class="ticket-copy">
+        <span class="demo5-kicker">WORKSHOP / TALLINN</span>
+        <h1><span class="title-glow">Professional Repair of</span><br>TVs and Electronics</h1>
+        <p>High-quality and reliable repair of televisions, Hi-Fi audio systems, and lighting equipment in Tallinn. Devices get a new life under the care of experts in our ESD-safe laboratory.</p>
+        <div class="hero-actions">
         <a href="#kontakt" class="btn btn-primary">Send Request</a>
         <a href="#teenused" class="btn btn-secondary">View Prices</a>
       </div>
+      </div>
+      <aside class="ticket-board" aria-hidden="true">
+        <div class="ticket-stamp">WORKSHOP / TALLINN</div>
+        <div class="ticket-card primary-ticket">
+          <span>Device sheet</span>
+          <strong>Ticket #FS-2026</strong>
+        </div>
+        <div class="ticket-columns">
+          <div><span>01</span><strong>Accepted</strong></div>
+          <div><span>02</span><strong>Testing</strong></div>
+          <div><span>03</span><strong>Handover</strong></div>
+        </div>
+        <div class="ticket-note"><span>Repair queue</span><strong>6 month warranty</strong></div>
+      </aside>
     </section>
 
+
+    <section class="container route-section">
+      <div class="route-intro">
+        <h2>Repair is not a black box</h2>
+        <p>Demo5 presents the service like a job sheet: clear stages, visible price, concrete responsibility.</p>
+      </div>
+      <div class="route-grid">
+        <article class="route-item"><span>A</span><h3>Check-in</h3><p>Device receives a job sheet and priority.</p></article>
+        <article class="route-item"><span>B</span><h3>Measurement</h3><p>Fault is verified with instruments, not guesses.</p></article>
+        <article class="route-item"><span>C</span><h3>Repair</h3><p>Component is replaced or restored.</p></article>
+        <article class="route-item"><span>D</span><h3>Release</h3><p>Final test, warranty and handover.</p></article>
+      </div>
+    </section>
 
     <!-- Services & Pricing Grid -->
     <section id="teenused" class="container">
@@ -132,7 +161,7 @@
         <h2>Our Services & Prices</h2>
         <p>Prices are approximate and finalized after diagnostics. Pricing is synced in real-time with our local database.</p>
       </div>
-      <div class="pricing-table-wrap">
+      <div class="pricing-table-wrap ledger-pricing">
         <table class="pricing-table">
           <thead>
             <tr>
@@ -300,7 +329,7 @@
         <h2>Supported Brands</h2>
         <p>We repair devices from all major global manufacturers.</p>
       </div>
-      <div class="brands-grid">
+      <div class="brands-grid maker-grid">
         <div class="brand-card">Samsung</div>
         <div class="brand-card">Sony</div>
         <div class="brand-card">LG</div>
@@ -352,7 +381,7 @@
 
     <!-- Contact & Form Section -->
     <section id="kontakt" class="container">
-      <div class="glass-card contact-container">
+      <div class="glass-card contact-container request-layout">
         
         <div class="contact-info">
           <h2>Contact Us</h2>

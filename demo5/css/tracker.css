@@ -262,174 +262,171 @@
   }
 }
 
-/* DEMO5 ticket tracker */
-.ticket-tracker,
+/* DEMO6 technical tracker */
+.tech-tracker,
 .tracker-wrapper {
-  max-width: 920px;
+  max-width: 900px;
 }
 
-.ticket-tracker {
-  background: #f7d9b8;
+.tech-tracker {
+  background: #111820;
+  position: relative;
 }
 
-.tracker-box {
-  margin-bottom: 28px;
+.tech-tracker::before {
+  background:
+    linear-gradient(rgba(0,211,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,211,255,0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+  content: "";
+  inset: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  position: absolute;
+}
+
+.tech-tracker > * {
+  position: relative;
+  z-index: 1;
 }
 
 .tracker-input-group {
-  background: #fffaf1;
-  border: 3px solid #241f1a;
-  display: grid;
-  gap: 0;
-  grid-template-columns: 1fr auto;
-  padding: 0;
+  background: #0d1117;
+  border: 1px solid #2f3b48;
+  border-radius: 12px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .tracker-input-group .form-control {
-  border: 0;
-  border-right: 3px solid #241f1a;
-}
-
-.tracker-input-group .btn {
-  box-shadow: none;
-  min-height: 58px;
+  background: #151b23;
 }
 
 .tracker-demo-tip {
-  background: #fffaf1;
-  border: 3px solid #241f1a;
-  border-radius: 0;
-  color: #4f453d;
-  font-weight: 800;
-  padding: 14px 16px;
+  background: rgba(255, 176, 32, 0.09);
+  border-color: rgba(255, 176, 32, 0.24);
+  border-radius: 10px;
+  color: #ffd58a;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .tracker-demo-code {
-  color: #e24b2d;
-  font-weight: 950;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  color: #9eefff;
+  font-weight: 900;
 }
 
 .tracker-demo-code:hover {
-  color: #241f1a;
+  color: #46f0a7;
 }
 
 .tracking-card {
-  background: #fffaf1;
-  border: 3px solid #241f1a;
-  box-shadow: 8px 8px 0 #241f1a;
+  background: #0d1117;
+  border: 1px solid #2f3b48;
+  border-radius: 14px;
   padding: 22px;
 }
 
 .tracking-header {
-  border-bottom: 3px solid #241f1a;
-  padding-bottom: 18px;
+  border-bottom-color: #2f3b48;
 }
 
 .tracking-info h3 {
-  color: #241f1a;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  letter-spacing: -0.04em;
+  color: #e6edf3;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 22px;
 }
 
 .tracking-info p {
-  color: #6f6257;
-  font-weight: 800;
-}
-
-.status-steps {
-  margin: 44px 0 24px;
+  color: #8b9aaa;
 }
 
 .status-steps::after {
-  background: #241f1a;
-  height: 3px;
+  background: #2f3b48;
 }
 
 .step-bar {
-  background: #e24b2d;
-  height: 8px;
-  top: 16px;
+  background: linear-gradient(90deg, #00d3ff 0%, #46f0a7 100%);
+  box-shadow: 0 0 20px rgba(0, 211, 255, 0.18);
 }
 
 .step-dot {
-  background: #fffaf1;
-  border: 3px solid #241f1a;
-  border-radius: 0;
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  color: #241f1a;
-  font-weight: 950;
+  background: #151b23;
+  border-color: #2f3b48;
+  color: #8b9aaa;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
 }
 
 .status-step.complete .step-dot {
-  background: #2d5f73;
-  border-color: #241f1a;
-  color: #fffaf1;
-  box-shadow: none;
+  background: #00d3ff;
+  border-color: #00d3ff;
+  color: #061017;
 }
 
 .status-step.active .step-dot {
-  background: #f2c94c;
-  border-color: #241f1a;
-  color: #241f1a;
-  box-shadow: none;
+  background: #ffb020;
+  border-color: #ffb020;
+  color: #061017;
+  box-shadow: 0 0 24px rgba(255, 176, 32, 0.22);
 }
 
 .step-label {
-  color: #6f6257;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
+  color: #8b9aaa;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .status-step.complete .step-label,
 .status-step.active .step-label {
-  color: #241f1a;
+  color: #e6edf3;
 }
 
 .status-badge {
-  border: 3px solid #241f1a;
-  border-radius: 0;
-  box-shadow: 4px 4px 0 #241f1a;
-  font-weight: 950;
-  letter-spacing: 0.08em;
+  border-radius: 8px;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .status-badge.received {
-  background: #d7ece6;
-  color: #241f1a;
+  background: rgba(0, 211, 255, 0.1);
+  border-color: rgba(0, 211, 255, 0.32);
+  color: #9eefff;
 }
 
 .status-badge.diagnostic {
-  background: #f2c94c;
-  color: #241f1a;
+  background: rgba(70, 240, 167, 0.1);
+  border-color: rgba(70, 240, 167, 0.32);
+  color: #9affcf;
 }
 
 .status-badge.repairing {
-  background: #f7d9b8;
-  color: #241f1a;
+  background: rgba(255, 176, 32, 0.12);
+  border-color: rgba(255, 176, 32, 0.34);
+  color: #ffd58a;
 }
 
 .status-badge.pickup {
-  background: #2d5f73;
-  color: #fffaf1;
+  background: rgba(70, 240, 167, 0.14);
+  border-color: rgba(70, 240, 167, 0.38);
+  color: #46f0a7;
 }
 
 .tracking-details-box {
-  border-top: 3px solid #241f1a;
+  border-top-color: #2f3b48;
 }
 
 .tracking-table {
-  border: 3px solid #241f1a;
+  border: 1px solid #2f3b48;
 }
 
 .tracking-table td {
-  border-bottom: 3px solid #241f1a;
+  border-bottom: 1px solid #2f3b48;
   padding: 12px;
 }
 
@@ -438,33 +435,28 @@
 }
 
 .tracking-table td + td {
-  border-left: 3px solid #241f1a;
+  border-left: 1px solid #2f3b48;
 }
 
 .tracking-table td.label-td {
-  background: #f7d9b8;
-  color: #241f1a;
-  font-weight: 950;
+  background: #111820;
+  color: #8b9aaa;
+  font-family: "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .tracking-table td.value-td {
-  color: #241f1a;
-  font-weight: 850;
+  color: #e6edf3;
 }
 
 @media (max-width: 640px) {
   .tracker-input-group {
-    grid-template-columns: 1fr;
-  }
-
-  .tracker-input-group .form-control {
-    border-right: 0;
-    border-bottom: 3px solid #241f1a;
+    flex-direction: column;
   }
 
   .tracking-card {
-    box-shadow: 5px 5px 0 #241f1a;
     padding: 16px;
   }
 

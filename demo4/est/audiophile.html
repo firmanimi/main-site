@@ -27,10 +27,10 @@
   <!-- Local Styles -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="demo5-body">
 
   <!-- Main Header -->
-  <header class="audiophile-header">
+  <header class="demo5-sidebar audiophile-header">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -67,16 +67,32 @@
     </div>
   </header>
 
-  <main>
+  <main class="demo5-main">
     
     <!-- Hero Section -->
-    <section class="hero container audiophile-hero">
-      <h1><span class="title-glow">Hi-Fi ja Audiofiilse</span><br>Seadmete Spetsialiseeritud Remont</h1>
-      <p>Teie kallis audioaparatuur on väärt parimat kohtlemist. Pakume tippklassi võimendite, vinüülplaadimängijate, CD-dekke ja kõlarite filtrite remonti ning täppishäälestust.</p>
-      <div class="hero-actions">
+    <section class="hero container demo5-hero audiophile-hero">
+      <div class="ticket-copy">
+        <span class="demo5-kicker">TÖÖKODA / TALLINN</span>
+        <h1><span class="title-glow">Hi-Fi ja Audiofiilse</span><br>Seadmete Spetsialiseeritud Remont</h1>
+        <p>Teie kallis audioaparatuur on väärt parimat kohtlemist. Pakume tippklassi võimendite, vinüülplaadimängijate, CD-dekke ja kõlarite filtrite remonti ning täppishäälestust.</p>
+        <div class="hero-actions">
         <a href="#kontakt" class="btn btn-primary">Saada remondisoov</a>
         <a href="#audio-teenused" class="btn btn-secondary">Vaata teenuseid</a>
       </div>
+      </div>
+      <aside class="ticket-board" aria-hidden="true">
+        <div class="ticket-stamp">TÖÖKODA / TALLINN</div>
+        <div class="ticket-card primary-ticket">
+          <span>Audio kontrollkaart</span>
+          <strong>Ticket #FS-2026</strong>
+        </div>
+        <div class="ticket-columns">
+          <div><span>01</span><strong>Vastu võetud</strong></div>
+          <div><span>02</span><strong>Testimisel</strong></div>
+          <div><span>03</span><strong>Üleandmine</strong></div>
+        </div>
+        <div class="ticket-note"><span>Tööde järjekord</span><strong>Garantii 6 kuud</strong></div>
+      </aside>
     </section>
 
     <!-- Why Choose Us Reassurance Section (Trust Elements) -->
@@ -109,7 +125,7 @@
         <h2>Audiofiilse helitehnika hinnakiri</h2>
         <p>Hinnakiri uueneb automaatselt values.txt andmete põhjal.</p>
       </div>
-      <div class="pricing-table-wrap">
+      <div class="pricing-table-wrap ledger-pricing">
         <table class="pricing-table">
           <thead>
             <tr>
@@ -146,7 +162,7 @@
 
     <!-- Contact section -->
     <section id="kontakt" class="container">
-      <div class="glass-card contact-container">
+      <div class="glass-card contact-container request-layout">
         
         <div class="contact-info">
           <h2>Konsulteeri audio-spetsialistiga</h2>

@@ -28,10 +28,10 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/tracker.css">
 </head>
-<body class="demo5-body">
+<body class="tech-body">
 
   <!-- Main Header -->
-  <header class="demo5-sidebar">
+  <header class="tech-header">
     <div class="container header-container">
       <a href="index.html" class="logo">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -68,34 +68,34 @@
     </div>
   </header>
 
-  <main class="demo5-main">
+  <main class="tech-main">
     
     <!-- Hero Section -->
-    <section class="hero container demo5-hero">
-      <div class="ticket-copy">
-        <span class="demo5-kicker">WORKSHOP / TALLINN</span>
+    <section class="hero container tech-hero">
+      <div class="tech-hero-copy">
+        <span class="tech-tag">ESD SERVICE LAB / TALLINN</span>
         <h1><span class="title-glow">Track Order Status</span></h1>
         <p>Enter the ticket number received from us to check the real-time diagnostics or repair state of your device.</p>
         
       </div>
-      <aside class="ticket-board" aria-hidden="true">
-        <div class="ticket-stamp">WORKSHOP / TALLINN</div>
-        <div class="ticket-card primary-ticket">
-          <span>Job sheet status</span>
-          <strong>Ticket #FS-2026</strong>
+      <div class="lab-instrument" aria-hidden="true">
+        <div class="instrument-header"><span>WORK ORDER STATUS</span><i>ONLINE</i></div>
+        <div class="instrument-grid">
+          <div class="signal-screen"><div class="wave wave-a"></div><div class="wave wave-b"></div></div>
+          <div class="status-stack">
+            <div><span>PSU CHECK</span><strong>24.0V</strong></div>
+            <div><span>OSCILLOSCOPE</span><strong>OK</strong></div>
+            <div><span>LOAD TEST</span><strong>72H</strong></div>
+            <div><span>QC PASS</span><strong>READY</strong></div>
+          </div>
         </div>
-        <div class="ticket-columns">
-          <div><span>01</span><strong>Accepted</strong></div>
-          <div><span>02</span><strong>Testing</strong></div>
-          <div><span>03</span><strong>Handover</strong></div>
-        </div>
-        <div class="ticket-note"><span>Repair queue</span><strong>6 month warranty</strong></div>
-      </aside>
+        <div class="instrument-metrics"><span>ESD protected</span><span>Component measurement</span><span>Load testing</span></div>
+      </div>
     </section>
 
     <!-- Interactive Order Status Tracker Panel -->
     <section class="container tracker-section">
-      <div class="glass-card tracker-wrapper ticket-tracker">
+      <div class="glass-card tracker-wrapper tech-tracker">
         <div class="tracker-box">
           <form id="trackerForm">
             <div class="tracker-input-group">
