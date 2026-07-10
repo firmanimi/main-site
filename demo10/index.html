@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast-Service – Professional TV and Electronics Repair Tallinn</title>
+  <meta name="description" content="Professional repair of TVs, Hi-Fi audio, lamps, and electronics in Tallinn. ESD-safe lab, original spare parts, and 6-month warranty. View pricing!">
+  <link rel="canonical" href="https://fastservice.ee/eng/">
+  
+  <!-- Hreflang Tags for Multi-language SEO -->
+  <link rel="alternate" hreflang="et" href="https://fastservice.ee/est/">
+  <link rel="alternate" hreflang="en" href="https://fastservice.ee/eng/">
+  <link rel="alternate" hreflang="ru" href="https://fastservice.ee/rus/">
+  
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Fast-Service – Professional Electronics & TV Repair">
+  <meta property="og:description" content="High-quality repair of TVs, Hi-Fi audio devices, and lamps. ESD protection, precision testing, and 6-month warranty.">
+  <meta property="og:image" content="../img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fastservice.ee/eng/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- JSON-LD LocalBusiness Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ElectronicsRepairShop",
+    "name": "Fast-Service Electronics Repair",
+    "image": "https://fastservice.ee/img/og-preview.png",
+    "url": "https://fastservice.ee/eng/",
+    "telephone": "+3726781111",
+    "email": "info@fastservice.ee",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vikerlase tn 3",
+      "addressLocality": "Tallinn",
+      "postalCode": "10621",
+      "addressCountry": "EE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 59.4295,
+      "longitude": 24.7182
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <style>
+    /* Design Variables */
+    :root {
+      --bg-midnight: #06080c;
+      --bg-terminal: #0b0f17;
+      --border-hud: #1a2230;
+      --border-active: #00ff66;
+      
+      --accent-safety: #ff5500;
+      --accent-cyan: #00f0ff;
+      --accent-success: #00ff66;
+      
+      --glow-success: 0 0 10px rgba(0, 255, 102, 0.25);
+      --glow-safety: 0 0 10px rgba(255, 85, 0, 0.25);
+      
+      --text-active: #ffffff;
+      --text-muted: #738a9c;
+      --text-dark: #3f5161;
+      
+      --transition: 0.2s steps(4, end);
+    }
+
+    /* Core Resets */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      scroll-behavior: smooth;
+      background-color: var(--bg-midnight);
+      color: var(--text-muted);
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      position: relative;
+    }
+
+    /* Ambient Tech Grid Background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(var(--border-hud) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-hud) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* COLUMN 1: LEFT PERSISTENT SYSTEM CONTROL PILLAR */
+    .control-pillar {
+      background: var(--bg-terminal);
+      border-right: 2px solid var(--border-hud);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .pillar-top {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .pillar-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .logo-badge {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--accent-safety);
+      letter-spacing: 2px;
+    }
+
+    .logo-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text-active);
+      letter-spacing: -0.5px;
+    }
+
+    /* Telemetry System Diagnostics HUD Panel */
+    .diagnostics-hud {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed var(--border-hud);
+      padding: 16px;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hud-title {
+      color: var(--accent-cyan);
+      font-weight: bold;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hud-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hud-status-on {
+      color: var(--accent-success);
+      text-shadow: var(--glow-success);
+    }
+
+    /* Touch-Friendly Vertical Command Menu */
+    .pillar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .pillar-nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-hud);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .pillar-nav-btn:hover {
+      color: var(--text-active);
+      border-color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Active State triggered by scroll context or click */
+    .pillar-nav-btn.active {
+      color: var(--text-active);
+      border-color: var(--accent-success);
+      background: rgba(0, 255, 102, 0.03);
+      box-shadow: inset 3px 0 0 var(--accent-success);
+    }
+
+    .pillar-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Coordinate and Location Links */
+    .coordinate-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .coord-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-hud);
+      padding-bottom: 4px;
+    }
+
+    .coord-link {
+      color: var(--accent-safety);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .coord-link:hover {
+      text-shadow: var(--glow-safety);
+    }
+
+    /* Column Lang Toggles */
+    .pillar-lang {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border-hud);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .pillar-lang-link {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .pillar-lang-link:hover {
+      color: var(--text-active);
+    }
+
+    .pillar-lang-link.active {
+      background: var(--accent-safety);
+      color: var(--bg-midnight);
+    }
+
+    /* COLUMN 2: RIGHT WORKSPACE */
+    .workspace {
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      overflow-y: auto;
+    }
+
+    /* Terminal Workspace Sections */
+    .work-panel {
+      background: var(--bg-terminal);
+      border: 1px solid var(--border-hud);
+      padding: 40px;
+      position: relative;
+    }
+
+    /* Decorative border corners */
+    .work-panel::before {
+      content: "";
+      position: absolute;
+      top: -1px; left: -1px; width: 10px; height: 10px;
+      border-top: 2px solid var(--accent-safety);
+      border-left: 2px solid var(--accent-safety);
+    }
+
+    .work-panel::after {
+      content: "";
+      position: absolute;
+      bottom: -1px; right: -1px; width: 10px; height: 10px;
+      border-bottom: 2px solid var(--accent-cyan);
+      border-right: 2px solid var(--accent-cyan);
+    }
+
+    /* Hero Unit Panel */
+    .panel-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .panel-hero h1 {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--text-active);
+      line-height: 1.15;
+    }
+
+    .panel-hero p {
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    .panel-hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    /* UI Navigation Control Blocks */
+    .btn {
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 16px 28px;
+      border: 1px solid var(--border-hud);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .btn-safety {
+      border-color: var(--accent-safety);
+      color: var(--accent-safety);
+    }
+
+    .btn-safety:hover {
+      background: var(--accent-safety);
+      color: var(--bg-midnight);
+      box-shadow: var(--glow-safety);
+    }
+
+    .btn-cyan {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .btn-cyan:hover {
+      background: var(--accent-cyan);
+      color: var(--bg-midnight);
+    }
+
+    /* Diagnostic Parameter Catalog (Pricing List Redesign) */
+    .catalog-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .catalog-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 24px;
+      border-bottom: 1px dashed var(--border-hud);
+      padding: 20px 0;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .catalog-row:hover {
+      border-bottom-color: var(--accent-cyan);
+      background: rgba(0, 240, 255, 0.01);
+    }
+
+    .catalog-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .catalog-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--text-active);
+    }
+
+    .catalog-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .catalog-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--accent-safety);
+      text-align: right;
+      min-width: 110px;
+    }
+
+    .catalog-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      min-width: 110px;
+      text-align: right;
+    }
+
+    /* Procedural Map representation */
+    .procedural-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .track-step {
+      border: 1px solid var(--border-hud);
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .track-step-num {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .track-step-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--text-active);
+    }
+
+    /* Tech integration ribbon */
+    .integrated-modules {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid var(--border-hud);
+      margin-top: 20px;
+    }
+
+    .module-item {
+      flex: 1 1 120px;
+      padding: 16px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      border-right: 1px solid var(--border-hud);
+      border-bottom: 1px solid var(--border-hud);
+    }
+
+    /* Sub FAQs Diagnostic logs */
+    .hud-log-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hud-log-item {
+      border: 1px solid var(--border-hud);
+    }
+
+    .hud-log-summary {
+      padding: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--text-active);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+    }
+
+    .hud-log-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .hud-log-summary::after {
+      content: "[LOG_OPEN]";
+      color: var(--accent-cyan);
+      font-size: 11px;
+    }
+
+    .hud-log-item[open] .hud-log-summary::after {
+      content: "[LOG_CLOSE]";
+      color: var(--accent-safety);
+    }
+
+    .hud-log-body {
+      padding: 0 20px 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      border-top: 1px dashed var(--border-hud);
+      margin-top: 4px;
+      padding-top: 16px;
+    }
+
+    /* Submission Telemetry Form */
+    .form-telemetry-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .form-column-input {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-column-input label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .telemetry-input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-hud);
+      color: var(--text-active);
+      padding: 14px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .telemetry-input:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    /* Scope style CAPTCHA validation frame */
+    .captcha-scope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .scope-box {
+      background: #000000;
+      border: 1px solid var(--border-hud);
+      height: 48px;
+      width: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-scope-reset {
+      background: transparent;
+      border: 1px solid var(--border-hud);
+      color: var(--text-muted);
+      width: 44px; height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-scope-reset:hover {
+      border-color: var(--accent-safety);
+      color: var(--accent-safety);
+    }
+
+    /* Offline fallback overlay */
+    .offline-cockpit-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(6, 8, 12, 0.95);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .offline-cockpit-overlay.show {
+      display: flex;
+    }
+
+    .cockpit-alert-box {
+      border: 2px solid var(--accent-safety);
+      background: var(--bg-terminal);
+      max-width: 520px;
+      width: 90%;
+      padding: 30px;
+    }
+
+    .cockpit-alert-header {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--accent-safety);
+      margin-bottom: 12px;
+    }
+
+    .cockpit-alert-text {
+      width: 100%;
+      background: #000;
+      border: 1px solid var(--border-hud);
+      color: var(--accent-cyan);
+      padding: 12px;
+      font-family: inherit;
+      font-size: 12px;
+      min-height: 120px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    /* Footer Parameters */
+    footer {
+      border-top: 1px solid var(--border-hud);
+      padding-top: 40px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--accent-safety);
+      text-decoration: none;
+    }
+
+    /* Dynamic Response Adaptation */
+    @media (max-width: 1024px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+      .control-pillar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 2px solid var(--border-hud);
+        padding: 30px 20px;
+      }
+      .pillar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .workspace {
+        padding: 30px 20px;
+      }
+      .procedural-track {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pillar-nav {
+        grid-template-columns: 1fr;
+      }
+      .catalog-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .catalog-price, .catalog-time {
+        text-align: left;
+        min-width: 0;
+      }
+      .procedural-track {
+        grid-template-columns: 1fr;
+      }
+      .panel-hero-actions {
+        flex-direction: column;
+      }
+      .pillar-lang {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COLUMN 1: LEFT PERSISTENT SYSTEM CONTROL PILLAR -->
+  <aside class="control-pillar">
+    <div class="pillar-top">
+      <div class="pillar-logo">
+        <span class="logo-badge">TALLINN_PRECISION_LAB</span>
+        <span class="logo-title">FAST-SERVICE</span>
+      </div>
+
+      <!-- Live Diagnostics Status HUD Panel -->
+      <div class="diagnostics-hud">
+        <div class="hud-title"><span>TELEMETRY_LOG</span><span class="hud-status-on">ONLINE</span></div>
+        <div class="hud-row"><span>SYS_ROUTE:</span><span>ESD_PROTECTED</span></div>
+        <div class="hud-row"><span>DIAG_PORT:</span><span class="hud-status-on">ACTIVE</span></div>
+        <div class="hud-row"><span>ACTIVE_JOBS:</span><span>14_UNITS</span></div>
+      </div>
+
+      <!-- Touch-Friendly Vertical Command Menu -->
+      <nav class="pillar-nav">
+        <a href="#operational-brief" class="pillar-nav-btn active" id="nav-brief"><span>> OPERATIONAL_BRIEF</span></a>
+        <a href="#pricing-catalog" class="pillar-nav-btn" id="nav-prices"><span>> PRICING_CATALOG</span></a>
+        <a href="#technical-faq" class="pillar-nav-btn" id="nav-faq"><span>> DIAG_LOG_FAQ</span></a>
+        <a href="#telemetry-transmission" class="pillar-nav-btn" id="nav-trans"><span>> ORDER_TERMINAL</span></a>
+      </nav>
+    </div>
+
+    <div class="pillar-bottom">
+      <!-- Geographic Coordinates Block -->
+      <div class="coordinate-block">
+        <div class="coord-item"><span>PRIMARY_ADDR:</span><span>Vikerlase tn 3, Tallinn</span></div>
+        <div class="coord-item"><span>PRIMARY_PORT:</span><a href="tel:+3726781111" class="coord-link">+3726781111</a></div>
+        <div class="coord-item"><span>ROUTE_DEST:</span><a href="https://maps.app.goo.gl/twXrAPbztFN6f3Qq6" target="_blank" rel="noopener noreferrer" class="coord-link">OPEN_GOOGLE_MAPS</a></div>
+      </div>
+
+      <div class="pillar-lang" aria-label="Language selector">
+        <a href="../est/index.html" class="pillar-lang-link active" lang="et">EST</a>
+        <a href="index.html" class="pillar-lang-link" lang="en">ENG</a>
+        <a href="../rus/index.html" class="pillar-lang-link" lang="ru">RUS</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- COLUMN 2: RIGHT WORKSPACE -->
+  <main class="workspace">
+    
+    <!-- MODULE 01: OPERATIONAL BRIEFING -->
+    <section class="work-panel panel-hero" id="operational-brief">
+      <h1>[OPERATIONAL_BRIEFING]</h1>
+      <p>High-quality and reliable repair of televisions, Hi-Fi audio systems, and lighting equipment in Tallinn. Devices get a new life under the care of experts in our ESD-safe laboratory.</p>
+      <div class="panel-hero-actions">
+        <a href="#telemetry-transmission" class="btn btn-safety">INITIATE WORK ORDER</a>
+        <a href="#pricing-catalog" class="btn btn-cyan">VIEW SPEC_BOM_PRICES</a>
+      </div>
+    </section>
+
+    <!-- MODULE 02: REPAIR & CALIBRATION CATALOG -->
+    <section class="work-panel" id="pricing-catalog">
+      <div style="margin-bottom: 30px;">
+        <span style="font-size: 11px; color: var(--accent-cyan); font-weight: bold;">[BOM_CATALOG_PARAMETERS]</span>
+        <h2 style="font-size: 26px; font-weight: bold; color: var(--text-active); margin-top: 4px;">Repair & Calibration Catalog</h2>
+      </div>
+
+      <div class="catalog-wrapper">
+        <!-- Catalog Entry: TV Diagnostics -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="tv_diagnostics">TV Diagnostics</span>
+            <span class="catalog-desc">General TV diagnostics, hardware fault identification, and repair cost estimation.</span>
+          </div>
+          <span class="catalog-price" data-service-price="tv_diagnostics">15 - 30 €</span>
+          <span class="catalog-time" data-service-time="tv_diagnostics">1-2 hours</span>
+        </div>
+
+        <!-- Catalog Entry: Screen Replacement -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="tv_screen">Screen Replacement</span>
+            <span class="catalog-desc">Professional replacement of broken or flickering LED panels and backlights with original parts.</span>
+          </div>
+          <span class="catalog-price" data-service-price="tv_screen">from 80 €</span>
+          <span class="catalog-time" data-service-time="tv_screen">1-3 days</span>
+        </div>
+
+        <!-- Catalog Entry: Audio Repair -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="audio_repair">Audio Repair</span>
+            <span class="catalog-desc">Electronic repair of receivers, amplifiers, turntables, and home cinema systems.</span>
+          </div>
+          <span class="catalog-price" data-service-price="audio_repair">from 30 €</span>
+          <span class="catalog-time" data-service-time="audio_repair">2-4 days</span>
+        </div>
+
+        <!-- Catalog Entry: DVD / Blu-Ray Repair -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="dvd_bluray">DVD/Blu-ray Repair</span>
+            <span class="catalog-desc">Laser lens cleaning, reader mechanism adjustments, and power supply repair.</span>
+          </div>
+          <span class="catalog-price" data-service-price="dvd_bluray">25 - 50 €</span>
+          <span class="catalog-time" data-service-time="dvd_bluray">1-2 days</span>
+        </div>
+
+        <!-- Catalog Entry: Remote Control Repair -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="remote_control">Remote Repair</span>
+            <span class="catalog-desc">Cleaning, contact pad restoration, and terminal re-soldering of remotes.</span>
+          </div>
+          <span class="catalog-price" data-service-price="remote_control">10 €</span>
+          <span class="catalog-time" data-service-time="remote_control">30-60 minutes</span>
+        </div>
+
+        <!-- Catalog Entry: Motherboard Soldering -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="board_repair">Motherboard Soldering</span>
+            <span class="catalog-desc">Micro-soldering, BGA reballing, SMD components and power jack replacements.</span>
+          </div>
+          <span class="catalog-price" data-service-price="board_repair">from 45 €</span>
+          <span class="catalog-time" data-service-time="board_repair">1-2 days</span>
+        </div>
+
+        <!-- Catalog Entry: Lamp Repair -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="lamp_repair">Lamp Repair</span>
+            <span class="catalog-desc">Rewiring, switch replacements, and electronics repair of table lamps and chandeliers.</span>
+          </div>
+          <span class="catalog-price" data-service-price="lamp_repair">from 15 €</span>
+          <span class="catalog-time" data-service-time="lamp_repair">1-2 days</span>
+        </div>
+
+        <!-- Catalog Entry: Hi-Fi Equipment Repair -->
+        <div class="catalog-row">
+          <div class="catalog-meta">
+            <span class="catalog-title" data-service-name="hifi_repair">Hi-Fi Equipment Repair</span>
+            <span class="catalog-desc">Maintenance of stereo gear, CD players, analog tuners, and premium sound units.</span>
+          </div>
+          <span class="catalog-price" data-service-price="hifi_repair">from 40 €</span>
+          <span class="catalog-time" data-service-time="hifi_repair">3-5 days</span>
+        </div>
+      </div>
+
+      <!-- Procedural Execution Map -->
+      <div style="margin-top: 50px;">
+        <span style="font-size: 11px; color: var(--accent-cyan); font-weight: bold;">[OPERATIONAL_PROCEDURAL_MAP]</span>
+        <div class="procedural-track">
+          <div class="track-step">
+            <span class="track-step-num">01 / DISPATCH_RECEPTION</span>
+            <span class="track-step-title">Equipment safe receipt into locked buffer inventory</span>
+          </div>
+          <div class="track-step">
+            <span class="track-step-num">02 / CALIBRATION_DIAGNOSTICS</span>
+            <span class="track-step-title">Evaluation of parametric faults & pricing quotation</span>
+          </div>
+          <div class="track-step">
+            <span class="track-step-num">03 / ESD_REPAIR_ACTIONS</span>
+            <span class="track-step-title">Thermal re-soldering & original component allocation</span>
+          </div>
+          <div class="track-step">
+            <span class="track-step-num">04 / DISCHARGE_WARRANTY</span>
+            <span class="track-step-title">Equipment safety checks with 6-month system warranty</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Integrations Ribbon -->
+      <div class="integrated-modules">
+        <div class="module-item">SAMSUNG</div>
+        <div class="module-item">SONY</div>
+        <div class="module-item">LG</div>
+        <div class="module-item">PHILIPS</div>
+        <div class="module-item">PANASONIC</div>
+        <div class="module-item">DENON</div>
+        <div class="module-item">YAMAHA</div>
+        <div class="module-item">PIONEER</div>
+        <div class="module-item">MARANTZ</div>
+      </div>
+    </section>
+
+    <!-- MODULE 03: PROCESS LOGS (FAQ) -->
+    <section class="work-panel" id="technical-faq">
+      <div style="margin-bottom: 30px;">
+        <span style="font-size: 11px; color: var(--accent-cyan); font-weight: bold;">[DIAGNOSTIC_FAQs_LOG]</span>
+        <h2 style="font-size: 26px; font-weight: bold; color: var(--text-active); margin-top: 4px;">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="hud-log-group">
+        <details class="hud-log-item">
+          <summary class="hud-log-summary">How long does the repair take?</summary>
+          <div class="hud-log-body">
+            Most repairs are completed within 1 to 3 business days after the diagnostic quote is confirmed. For complex issues or when special components need to be ordered, it may take up to 5-7 business days. We will inform you of the exact timeframe after diagnostics.
+          </div>
+        </details>
+        <details class="hud-log-item">
+          <summary class="hud-log-summary">Do repaired devices come with a warranty?</summary>
+          <div class="hud-log-body">
+            Yes, all repair work and replaced components are covered by a 6-month warranty starting from the date you pick up your device.
+          </div>
+        </details>
+        <details class="hud-log-item">
+          <summary class="hud-log-summary">Do you offer on-site repairs at my home?</summary>
+          <div class="hud-log-body">
+            To ensure high-quality and ESD safety, all repairs are performed at our specialized laboratory. If your TV is too large, you can order our courier service to bring it to us and deliver it back to you post-repair.
+          </div>
+        </details>
+        <details class="hud-log-item">
+          <summary class="hud-log-summary">How much does diagnostics cost if I decide not to proceed with repair?</summary>
+          <div class="hud-log-body">
+            If you choose not to repair the device after diagnostics, only the diagnostic fee applies (15–30 € depending on complexity). If you proceed with the repair, diagnostics are completely free.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- MODULE 04: FORM TRANSMISSION INTERFACE -->
+    <section class="work-panel" id="telemetry-transmission">
+      <div style="margin-bottom: 30px;">
+        <span style="font-size: 11px; color: var(--accent-safety); font-weight: bold;">[INITIATE_WORK_ORDER_TERMINAL]</span>
+        <h2 style="font-size: 26px; font-weight: bold; color: var(--text-active); margin-top: 4px;">Transmit Telemetry Data</h2>
+      </div>
+
+      <div id="formStatus" style="display: none; padding: 15px; margin-bottom: 20px; font-weight: bold; border: 1px solid;"></div>
+
+      <form id="contactForm" class="form-telemetry-grid">
+        <div class="form-column-input">
+          <label for="client_name">CLIENT_NAME_METRIC *</label>
+          <input type="text" id="client_name" name="name" class="telemetry-input" placeholder="Input full name reference" required>
+        </div>
+
+        <div class="form-column-input">
+          <label for="client_contact">COMMUNICATION_GATEWAY *</label>
+          <input type="text" id="client_contact" name="contact" class="telemetry-input" placeholder="Input primary email or telephone" required>
+        </div>
+
+        <div class="form-column-input">
+          <label for="device_category">HARDWARE_CLASS *</label>
+          <select id="device_category" name="device" class="telemetry-input" style="background: var(--bg-terminal);" required>
+            <option value="Teler">TV / Television</option>
+            <option value="Hi-Fi Audio">Hi-Fi Audio equipment</option>
+            <option value="Lamp">Lighting / Lamp</option>
+            <option value="Muu elektroonika">Other electronics</option>
+          </select>
+        </div>
+
+        <div class="form-column-input">
+          <label for="issue_desc">FAULTS_AND_SYMPTOMS_DUMP *</label>
+          <textarea id="issue_desc" name="issue" class="telemetry-input" style="min-height: 110px;" placeholder="Describe parameters and anomalies of the target system..." required></textarea>
+        </div>
+
+        <!-- Calibration Captcha Scoped Oscilloscope -->
+        <div class="form-column-input">
+          <label for="captcha_code">MANUAL_COORDINATE_VALIDATION *</label>
+          <div class="captcha-scope">
+            <div class="scope-box">
+              <canvas id="captchaCanvas" width="130" height="48"></canvas>
+            </div>
+            <button type="button" class="btn-scope-reset" title="Refresh local math coordinates">
+              ⚡
+            </button>
+            <input type="text" id="captcha_code" class="telemetry-input" placeholder="Result" style="max-width: 100px;" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-safety" style="width: 100%; justify-content: center; margin-top: 10px;">TRANSMIT TO ACTIVE REPAIR JOBS</button>
+      </form>
+    </section>
+
+    <!-- Cockpit Airgap fall-back overlay -->
+    <div id="offlineModal" class="offline-cockpit-overlay">
+      <div class="cockpit-alert-box">
+        <div class="cockpit-alert-header">[COCKPIT_LINK_OFFLINE]</div>
+        <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+          The system API interface is offline. Please copy the generated schematic parameters below and dispatch via emergency mailto protocol:
+        </div>
+        <textarea id="offlineText" class="cockpit-alert-text" readonly></textarea>
+        <div style="display: flex; justify-content: flex-end; gap: 12px;">
+          <button id="cancelModalBtn" class="btn" style="padding: 8px 16px; min-height: auto;">ABORT</button>
+          <a id="mailtoBtn" href="#" class="btn btn-safety" style="padding: 8px 16px; min-height: auto;">INITIATE TRANSMISSION</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Persistent Technical Footer -->
+    <footer>
+      <p>&copy; 2026 Fast-Service OÜ. All rights reserved.</p>
+      <div>
+        <a href="gdpr.html" style="margin-right: 15px;">Privacy Policy (GDPR)</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Telemetry Controller Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollHighlight();
+      initCaptcha();
+      initPricingAndServices();
+      initContactForm();
+    });
+
+    /**
+     * Active Scroll Highlight Controller (IntersectionObserver integration)
+     * Automatically coordinates left vertical pillar button selections with scroll positions
+     */
+    function initScrollHighlight() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const sections = ['operational-brief', 'pricing-catalog', 'technical-faq', 'telemetry-transmission'];
+      const navBtnMap = {
+        'operational-brief': document.getElementById('nav-brief'),
+        'pricing-catalog': document.getElementById('nav-prices'),
+        'technical-faq': document.getElementById('nav-faq'),
+        'telemetry-transmission': document.getElementById('nav-trans')
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            Object.values(navBtnMap).forEach(btn => btn.classList.remove('active'));
+            const activeBtn = navBtnMap[entry.target.id];
+            if (activeBtn) activeBtn.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) observer.observe(sec);
+      });
+    }
+
+    /**
+     * Calibration Oscilloscope Captcha Logic
+     */
+    let CAPTCHA_RESULT = 0;
+
+    function initCaptcha() {
+      const canvas = document.getElementById('captchaCanvas');
+      const resetBtn = document.querySelector('.btn-scope-reset');
+      
+      if (!canvas) return;
+      generateMathCaptcha(canvas);
+      
+      if (resetBtn) {
+        resetBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          generateMathCaptcha(canvas);
+        });
+      }
+    }
+
+    function generateMathCaptcha(canvas) {
+      const ctx = canvas.getContext('2d');
+      const num1 = Math.floor(Math.random() * 9) + 2;
+      const num2 = Math.floor(Math.random() * 9) + 2;
+      CAPTCHA_RESULT = num1 + num2;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Technical oscilloscope baseline wave elements
+      ctx.strokeStyle = '#1a2230';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let x = 0; x < canvas.width; x += 5) {
+        let y = (canvas.height / 2) + Math.sin(x * 0.1) * 8;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      ctx.fillStyle = '#ff5500';
+      ctx.font = 'bold 16px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.fillText(`${num1} + ${num2} = ?`, 0, 0);
+      ctx.restore();
+    }
+
+    /**
+     * Diagnostic Pricing Synchronization (values.txt)
+     */
+    function initPricingAndServices() {
+      fetch('../values.txt')
+        .then(response => {
+          if (!response.ok) throw new Error('Local database connection down');
+          return response.text();
+        })
+        .then(text => {
+          const services = parseValuesTxt(text);
+          populateDOMValues(services);
+        })
+        .catch(err => {
+          console.warn('Coordinates system reading pre-set fallback price specifications:', err);
+        });
+    }
+
+    function parseValuesTxt(text) {
+      const lines = text.split('\n');
+      const services = {};
+      let inServicesSection = false;
+      
+      for (let line of lines) {
+        line = line.trim();
+        if (!line || line.startsWith('#')) continue;
+        
+        if (line === '[services]') {
+          inServicesSection = true;
+          continue;
+        }
+        
+        if (inServicesSection && line.includes('=')) {
+          const parts = line.split('=');
+          const key = parts[0].trim();
+          const specParts = parts[1].trim().split('|').map(p => p.trim());
+          
+          if (specParts.length >= 7) {
+            services[key] = {
+              priceSpec: specParts[0],
+              timeET: specParts[1],
+              timeEN: specParts[2],
+              timeRU: specParts[3],
+              nameET: specParts[4],
+              nameEN: specParts[5],
+              nameRU: specParts[6]
+            };
+          }
+        }
+      }
+      return services;
+    }
+
+    function populateDOMValues(services) {
+      document.querySelectorAll('[data-service-price]').forEach(el => {
+        const key = el.getAttribute('data-service-price');
+        if (services[key]) {
+          let spec = services[key].priceSpec;
+          if (spec.endsWith('+')) {
+            el.textContent = `from ${spec.slice(0, -1)} €`;
+          } else if (spec.includes('-')) {
+            const range = spec.split('-');
+            el.textContent = `${range[0]} € - ${range[1]} €`;
+          } else {
+            el.textContent = `${spec} €`;
+          }
+        }
+      });
+
+      document.querySelectorAll('[data-service-time]').forEach(el => {
+        const key = el.getAttribute('data-service-time');
+        if (services[key]) {
+          el.textContent = services[key].timeEN;
+        }
+      });
+    }
+
+    /**
+     * Cockpit Form Delivery Framework (including fallback local mail transmission)
+     */
+    function initContactForm() {
+      const form = document.getElementById('contactForm');
+      const statusBox = document.getElementById('formStatus');
+      const offlineModal = document.getElementById('offlineModal');
+      const offlineText = document.getElementById('offlineText');
+      const mailtoBtn = document.getElementById('mailtoBtn');
+      const cancelBtn = document.getElementById('cancelModalBtn');
+      
+      if (!form) return;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        statusBox.style.display = 'none';
+        
+        const captchaInput = document.getElementById('captcha_code');
+        if (parseInt(captchaInput.value.trim(), 10) !== CAPTCHA_RESULT) {
+          statusBox.textContent = 'VAL_MISMATCH: Validation parameters invalid.';
+          statusBox.style.color = 'var(--accent-safety)';
+          statusBox.style.borderColor = 'var(--accent-safety)';
+          statusBox.style.display = 'block';
+          generateMathCaptcha(document.getElementById('captchaCanvas'));
+          captchaInput.value = '';
+          return;
+        }
+
+        const name = document.getElementById('client_name').value.trim();
+        const contact = document.getElementById('client_contact').value.trim();
+        const device = document.getElementById('device_category').value;
+        const issue = document.getElementById('issue_desc').value.trim();
+
+        const datalinkMessage = `[COCKPIT_WORK_ORDER_TELEMETRY]\nCLIENT: ${name}\nINTERFACE: ${contact}\nHARDWARE: ${device}\nFAULTS: ${issue}\n[EOF]`;
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            statusBox.textContent = 'TRANSMISSION_COMPLETE: Information saved to our Estonia labs.';
+            statusBox.style.color = 'var(--accent-success)';
+            statusBox.style.borderColor = 'var(--accent-success)';
+            statusBox.style.display = 'block';
+            form.reset();
+            generateMathCaptcha(document.getElementById('captchaCanvas'));
+          } else {
+            throw new Error('Fallback triggered');
+          }
+        })
+        .catch(() => {
+          console.warn('Primary gateway unreachable. Activating copy-paste coordinates routing...');
+          offlineText.value = datalinkMessage;
+          mailtoBtn.href = `mailto:info@fastservice.ee?subject=Datalink Work Order Parameters&body=${encodeURIComponent(datalinkMessage)}`;
+          offlineModal.classList.add('show');
+        });
+      });
+
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+          offlineModal.classList.remove('show');
+        });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast-Service – Premium TV and Electronics Repair Tallinn</title>
+  <meta name="description" content="Professional repair of TVs, Hi-Fi audio, lamps, and electronics in Tallinn. ESD-safe lab, original spare parts, and 6-month warranty. View pricing!">
+  <link rel="canonical" href="https://fastservice.ee/eng/">
+  
+  <!-- Hreflang Tags for Multi-language SEO -->
+  <link rel="alternate" hreflang="et" href="https://fastservice.ee/est/">
+  <link rel="alternate" hreflang="en" href="https://fastservice.ee/eng/">
+  <link rel="alternate" hreflang="ru" href="https://fastservice.ee/rus/">
+  
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Fast-Service – Professional Electronics & TV Repair">
+  <meta property="og:description" content="High-quality repair of TVs, Hi-Fi audio devices, and lamps. ESD protection, precision testing, and 6-month warranty.">
+  <meta property="og:image" content="../img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fastservice.ee/eng/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- JSON-LD LocalBusiness Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ElectronicsRepairShop",
+    "name": "Fast-Service Electronics Repair",
+    "image": "https://fastservice.ee/img/og-preview.png",
+    "url": "https://fastservice.ee/eng/",
+    "telephone": "+3726781111",
+    "email": "info@fastservice.ee",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vikerlase tn 3",
+      "addressLocality": "Tallinn",
+      "postalCode": "10621",
+      "addressCountry": "EE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 59.4295,
+      "longitude": 24.7182
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <style>
+    /* Clearwave Design Tokens */
+    :root {
+      --bg-base: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-ocean: #f0f9ff;
+      --color-primary: #0284c7; /* Wave blue */
+      --color-secondary: #0d9488; /* Seafoam teal */
+      --color-coral: #f97316; /* Calming accent */
+      
+      --gradient-wave: linear-gradient(135deg, #e0f2fe 0%, #ccfbf1 100%);
+      --gradient-btn: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      
+      --shadow-sm: 0 4px 6px -1px rgba(2, 132, 199, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(2, 132, 199, 0.08);
+      --shadow-lg: 0 20px 40px -15px rgba(2, 132, 199, 0.12);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Floating Pill Header */
+    header {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      margin-bottom: 20px;
+    }
+
+    .header-pill {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(2, 132, 199, 0.1);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      padding: 0 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 20px;
+      background: var(--gradient-btn);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-wave {
+      width: 28px;
+      height: 28px;
+      background: var(--gradient-btn);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .logo-wave::after {
+      content: "";
+      position: absolute;
+      width: 12px; height: 12px;
+      background: #ffffff;
+      border-radius: 50%;
+      top: 8px; left: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .nav-item a:hover, .nav-item.active a {
+      color: var(--color-primary);
+      background: rgba(2, 132, 199, 0.05);
+    }
+
+    /* Minimal Language Pill Switcher */
+    .lang-switcher {
+      display: flex;
+      background: var(--bg-surface);
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+    }
+
+    .lang-link {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      text-decoration: none;
+      transition: var(--transition);
+      border-radius: var(--radius-pill);
+    }
+
+    .lang-link:hover {
+      color: var(--color-primary);
+    }
+
+    .lang-link.active {
+      background: var(--gradient-btn);
+      color: #ffffff;
+    }
+
+    /* Soft Fluid Wave Hero Section */
+    .hero-wrapper {
+      background: var(--gradient-wave);
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Fluid buttons */
+    .btn {
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      padding: 14px 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      text-decoration: none;
+      border: 1px solid transparent;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-btn);
+      color: #ffffff;
+      box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      border-color: rgba(2, 132, 199, 0.15);
+      color: var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-surface);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Graphic Asset Mockup (Hero Right) */
+    .hero-graphic {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      border: 1px solid rgba(2, 132, 199, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .graphic-frame {
+      background: var(--bg-ocean);
+      border-radius: var(--radius-md);
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Beautiful CSS Wave decoration */
+    .graphic-wave {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%; height: 80px;
+      fill: #ffffff;
+      opacity: 0.9;
+    }
+
+    .graphic-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* Wave section transitions */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      height: 60px;
+      margin-top: -1px;
+      fill: #ffffff;
+    }
+
+    /* Service Catalog */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Clean Clearwave Service cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .clear-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(2, 132, 199, 0.05);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+    }
+
+    .clear-card:hover {
+      background: #ffffff;
+      border-color: rgba(2, 132, 199, 0.15);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .clear-card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 44px; height: 44px;
+      background: var(--bg-ocean);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 20px;
+    }
+
+    .clear-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .clear-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .clear-card-bottom {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(2, 132, 199, 0.08);
+      padding-top: 16px;
+    }
+
+    .card-price {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--color-primary);
+    }
+
+    .card-time {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Soft Brands Ribbon */
+    .brands-container {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-pill {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: default;
+      transition: var(--transition);
+    }
+
+    .brand-pill:hover {
+      color: var(--color-primary);
+    }
+
+    /* Peaceful Timeline Diagram */
+    .process-lane {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .process-block {
+      background: #ffffff;
+      border: 1px solid rgba(2, 132, 199, 0.06);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .process-num {
+      width: 28px; height: 28px;
+      background: var(--bg-ocean);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .process-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .process-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Clean accordion style details logs */
+    .logs-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .logs-item {
+      background: #ffffff;
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .logs-summary {
+      padding: 24px;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+    }
+
+    .logs-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .logs-summary::after {
+      content: "↓";
+      color: var(--color-primary);
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .logs-item[open] .logs-summary::after {
+      transform: rotate(180deg);
+    }
+
+    .logs-answer {
+      padding: 0 24px 24px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Friendly Form section */
+    .form-panel-wrapper {
+      background: var(--bg-ocean);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .form-brief h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .form-brief p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .brief-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .brief-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brief-icon {
+      width: 40px; height: 44px;
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 16px;
+    }
+
+    .brief-text p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .form-fields {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group-clear {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group-clear label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .clear-field {
+      background: var(--bg-surface);
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      padding: 14px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .clear-field:focus {
+      border-color: var(--color-primary);
+      background: #ffffff;
+    }
+
+    /* Calming wave style CAPTCHA */
+    .captcha-scope-panel {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .scope-box {
+      background: #ffffff;
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-sm);
+      height: 48px;
+      width: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-scope-refresh {
+      background: #ffffff;
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      width: 44px; height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-scope-refresh:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* Emergency Alert Modal for Airgap */
+    .emergency-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .emergency-modal-overlay.show {
+      display: flex;
+    }
+
+    .alert-panel {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      max-width: 500px;
+      width: 90%;
+      padding: 30px;
+    }
+
+    .alert-header {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .alert-textarea {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid rgba(2, 132, 199, 0.08);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      padding: 12px;
+      font-family: inherit;
+      font-size: 13px;
+      min-height: 120px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    /* Calming Footer area */
+    footer {
+      border-top: 1px solid rgba(2, 132, 199, 0.08);
+      background: var(--bg-surface);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-links h4 {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(2, 132, 199, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .footer-bottom a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    /* Responsive Adaptation */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+      .hero-graphic {
+        display: none;
+      }
+      .form-panel-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-pill {
+        flex-direction: column;
+        height: auto;
+        gap: 16px;
+        padding: 16px 20px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .process-lane {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .process-lane {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Pill Header -->
+  <header class="container">
+    <div class="header-pill">
+      <a href="index.html" class="logo">
+        <div class="logo-wave"></div>
+        <span>Fast-Service</span>
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item active"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="audiophile.html">Hi-Fi Specialist</a></li>
+          <li class="nav-item"><a href="#teenused">Prices</a></li>
+          <li class="nav-item"><a href="tracking.html">Tracking</a></li>
+          <li class="nav-item"><a href="#kontakt">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-controls">
+        <div class="lang-switcher" aria-label="Language selector">
+          <a href="../est/index.html" class="lang-link active" lang="et">EST</a>
+          <a href="index.html" class="lang-link" lang="en">ENG</a>
+          <a href="../rus/index.html" class="lang-link" lang="ru">RUS</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero with wave dividers -->
+    <div class="hero-wrapper">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Professional Electronics Repair with Care & Clarity</h1>
+          <p>High-quality and reliable repair of televisions, Hi-Fi audio systems, and lighting equipment in Tallinn. Devices get a new life under the care of experts in our ESD-safe laboratory.</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Book Consultation</a>
+            <a href="#teenused" class="btn btn-secondary">View Prices</a>
+          </div>
+        </div>
+
+        <div class="hero-graphic">
+          <div class="graphic-frame">
+            <div class="graphic-text">Premium Electronics Care</div>
+            <!-- Organic SVG wave decoration -->
+            <svg class="graphic-wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,160 C320,320,640,0,960,160 L1440,320 L1440,320 L0,320 Z"></path>
+            </svg>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
+            <span>Certified Laboratory</span>
+            <span>Est. 2012</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Organic Wave Divider to section below -->
+    <svg class="wave-divider" viewBox="0 0 1440 74" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,32 C480,128,960,-32,1440,32 L1440,74 L0,74 Z"></path>
+    </svg>
+
+    <!-- Services Catalog -->
+    <section id="teenused" class="container">
+      <div class="section-title">
+        <h2>Our Services & Prices</h2>
+        <p>Prices are approximate and finalized after diagnostics. Pricing is synced in real-time with our local database.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card: TV Diagnostics -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">🔎</div>
+            <h3 data-service-name="tv_diagnostics">TV Diagnostics</h3>
+            <p>General TV diagnostics, hardware fault identification, and repair cost estimation.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="tv_diagnostics">15 - 30 €</span>
+            <span class="card-time" data-service-time="tv_diagnostics">1-2 hours</span>
+          </div>
+        </div>
+
+        <!-- Card: Screen Replacement -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">📺</div>
+            <h3 data-service-name="tv_screen">Screen Replacement</h3>
+            <p>Professional replacement of broken or flickering LED panels and backlights with original parts.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="tv_screen">from 80 €</span>
+            <span class="card-time" data-service-time="tv_screen">1-3 days</span>
+          </div>
+        </div>
+
+        <!-- Card: Audio Repair -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">🔊</div>
+            <h3 data-service-name="audio_repair">Audio Repair</h3>
+            <p>Electronic repair of receivers, amplifiers, turntables, and home cinema systems.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="audio_repair">from 30 €</span>
+            <span class="card-time" data-service-time="audio_repair">2-4 days</span>
+          </div>
+        </div>
+
+        <!-- Card: DVD / Blu-Ray Repair -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">📀</div>
+            <h3 data-service-name="dvd_bluray">DVD/Blu-ray Repair</h3>
+            <p>Laser lens cleaning, reader mechanism adjustments, and power supply repair.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="dvd_bluray">25 - 50 €</span>
+            <span class="card-time" data-service-time="dvd_bluray">1-2 days</span>
+          </div>
+        </div>
+
+        <!-- Card: Remote Control Repair -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">🎛️</div>
+            <h3 data-service-name="remote_control">Remote Repair</h3>
+            <p>Cleaning, contact pad restoration, and terminal re-soldering of remotes.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="remote_control">10 €</span>
+            <span class="card-time" data-service-time="remote_control">30-60 minutes</span>
+          </div>
+        </div>
+
+        <!-- Card: Motherboard Soldering -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">🔧</div>
+            <h3 data-service-name="board_repair">Motherboard Soldering</h3>
+            <p>Micro-soldering, BGA reballing, SMD components and power jack replacements.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="board_repair">from 45 €</span>
+            <span class="card-time" data-service-time="board_repair">1-2 days</span>
+          </div>
+        </div>
+
+        <!-- Card: Lamp Repair -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">💡</div>
+            <h3 data-service-name="lamp_repair">Lamp Repair</h3>
+            <p>Rewiring, switch replacements, and electronics repair of table lamps and chandeliers.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="lamp_repair">from 15 €</span>
+            <span class="card-time" data-service-time="lamp_repair">1-2 days</span>
+          </div>
+        </div>
+
+        <!-- Card: Hi-Fi Equipment Repair -->
+        <div class="clear-card">
+          <div class="clear-card-top">
+            <div class="card-icon">🎹</div>
+            <h3 data-service-name="hifi_repair">Hi-Fi Equipment Repair</h3>
+            <p>Maintenance of stereo gear, CD players, analog tuners, and premium sound units.</p>
+          </div>
+          <div class="clear-card-bottom">
+            <span class="card-price" data-service-price="hifi_repair">from 40 €</span>
+            <span class="card-time" data-service-time="hifi_repair">3-5 days</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calm Steps Timeline -->
+    <section class="container" style="border-top: 1px solid rgba(2, 132, 199, 0.05); padding-top: 90px;">
+      <div class="section-title">
+        <h2>Simple Dropping Off to Safe Pickup</h2>
+        <p>How we take care of your device from the moment you contact us until it is restored.</p>
+      </div>
+
+      <div class="process-lane">
+        <div class="process-block">
+          <div class="process-num">1</div>
+          <div class="process-title">Equipment Reception</div>
+          <div class="process-desc">We receive your system and register it in our secure database.</div>
+        </div>
+        <div class="process-block">
+          <div class="process-num">2</div>
+          <div class="process-title">Painless Assessment</div>
+          <div class="process-desc">We perform diagnostic checks to map exact issues and quote.</div>
+        </div>
+        <div class="process-block">
+          <div class="process-num">3</div>
+          <div class="process-title">Precision Repair</div>
+          <div class="process-desc">Our technicians repair and calibrate the device using original parts.</div>
+        </div>
+        <div class="process-block">
+          <div class="process-num">4</div>
+          <div class="process-title">Warranty Pickup</div>
+          <div class="process-desc">Pick up your item along with a 6-month systems warranty.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Brands Bar -->
+    <section class="container">
+      <div class="brands-container">
+        <div class="brand-pill">SAMSUNG</div>
+        <div class="brand-pill">SONY</div>
+        <div class="brand-pill">LG</div>
+        <div class="brand-pill">PHILIPS</div>
+        <div class="brand-pill">PANASONIC</div>
+        <div class="brand-pill">DENON</div>
+        <div class="brand-pill">YAMAHA</div>
+        <div class="brand-pill">PIONEER</div>
+        <div class="brand-pill">MARANTZ</div>
+      </div>
+    </section>
+
+    <!-- Soft FAQs Accordion -->
+    <section id="faq" class="container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Got questions? We have answers. If you cannot find what you need, contact us directly.</p>
+      </div>
+
+      <div class="logs-wrapper">
+        <details class="logs-item">
+          <summary class="logs-summary">How long does the repair take?</summary>
+          <div class="logs-answer">
+            Most repairs are completed within 1 to 3 business days after the diagnostic quote is confirmed. For complex issues or when special components need to be ordered, it may take up to 5-7 business days. We will inform you of the exact timeframe after diagnostics.
+          </div>
+        </details>
+        <details class="logs-item">
+          <summary class="logs-summary">Do repaired devices come with a warranty?</summary>
+          <div class="logs-answer">
+            Yes, all repair work and replaced components are covered by a 6-month warranty starting from the date you pick up your device.
+          </div>
+        </details>
+        <details class="logs-item">
+          <summary class="logs-summary">Do you offer on-site repairs at my home?</summary>
+          <div class="logs-answer">
+            To ensure high-quality and ESD safety, all repairs are performed at our specialized laboratory. If your TV is too large, you can order our courier service to bring it to us and deliver it back to you post-repair.
+          </div>
+        </details>
+        <details class="logs-item">
+          <summary class="logs-summary">How much does diagnostics cost if I decide not to proceed with repair?</summary>
+          <div class="logs-answer">
+            If you choose not to repair the device after diagnostics, only the diagnostic fee applies (15–30 € depending on complexity). If you proceed with the repair, diagnostics are completely free.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Warm, Trust-Building Contact Form -->
+    <section id="kontakt" class="container">
+      <div class="form-panel-wrapper">
+        <div class="form-brief">
+          <h2>Talk to an Expert</h2>
+          <p>We're here to help you get your devices up and running smoothly. Fill out our simple form and we will contact you shortly.</p>
+          
+          <div class="brief-contact">
+            <div class="brief-item">
+              <div class="brief-icon">📍</div>
+              <div class="brief-text">
+                <h4 style="font-size: 13px; color: var(--color-primary);">ADDRESS</h4>
+                <p>Vikerlase tn 3, 13615 Tallinn, Estonia</p>
+              </div>
+            </div>
+            
+            <div class="brief-item">
+              <div class="brief-icon">📞</div>
+              <div class="brief-text">
+                <h4 style="font-size: 13px; color: var(--color-primary);">PHONE</h4>
+                <p><a href="tel:+3726781111" style="color: inherit; text-decoration: none;">+3726781111</a></p>
+              </div>
+            </div>
+
+            <div class="brief-item">
+              <div class="brief-icon">✉️</div>
+              <div class="brief-text">
+                <h4 style="font-size: 13px; color: var(--color-primary);">EMAIL</h4>
+                <p>info@fastservice.ee</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div id="formStatus" class="form-status" style="display: none; padding: 15px; margin-bottom: 20px; font-weight: bold; border-radius: var(--radius-sm); border: 1px solid;"></div>
+          
+          <form id="contactForm" class="form-fields">
+            <div class="form-group-clear">
+              <label for="client_name">Name *</label>
+              <input type="text" id="client_name" name="name" class="clear-field" placeholder="Full Name" required>
+            </div>
+            
+            <div class="form-group-clear">
+              <label for="client_contact">Email or Phone *</label>
+              <input type="text" id="client_contact" name="contact" class="clear-field" placeholder="Contact details" required>
+            </div>
+
+            <div class="form-group-clear">
+              <label for="device_category">Device Class *</label>
+              <select id="device_category" name="device" class="clear-field" style="background-color: var(--bg-surface);" required>
+                <option value="Teler">TV / Television</option>
+                <option value="Hi-Fi Audio">Hi-Fi Audio equipment</option>
+                <option value="Lamp">Lighting / Lamp</option>
+                <option value="Muu elektroonika">Other electronics</option>
+              </select>
+            </div>
+            
+            <div class="form-group-clear">
+              <label for="issue_desc">Description *</label>
+              <textarea id="issue_desc" name="issue" class="clear-field" style="min-height: 100px;" placeholder="Describe symptoms or issues of your device..." required></textarea>
+            </div>
+            
+            <!-- Handwriting style Math Captcha -->
+            <div class="form-group-clear">
+              <label for="captcha_code">Security Verification *</label>
+              <div class="captcha-scope-panel">
+                <div class="scope-box">
+                  <canvas id="captchaCanvas" width="130" height="48"></canvas>
+                </div>
+                <button type="button" class="btn-scope-refresh" title="Regenerate code">
+                  ⟳
+                </button>
+                <input type="text" id="captcha_code" class="clear-field" placeholder="Answer" style="max-width: 100px;" required>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">Send Work Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Friendly Airgap fallback overlay -->
+  <div id="offlineModal" class="emergency-modal-overlay">
+    <div class="alert-panel">
+      <div class="alert-header">No Connection detected</div>
+      <div style="font-size: 13px; line-height: 1.5; color: var(--text-muted); margin-bottom: 20px;">
+        Your system has lost connectivity. Please copy the dispatch request variables below and transmit via email:
+      </div>
+      <textarea id="offlineText" class="alert-textarea" readonly></textarea>
+      <div style="display: flex; justify-content: flex-end; gap: 12px;">
+        <button id="cancelModalBtn" class="btn btn-secondary" style="padding: 8px 16px; min-height: auto;">Halt</button>
+        <a id="mailtoBtn" href="#" class="btn btn-primary" style="padding: 8px 16px; min-height: auto;">Send Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Clearwave Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Fast-Service Tallinn</h3>
+        <p>Premium electronics and home system repair services since 2012. Quality, warranty, and high customer satisfaction.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>ROUTING</h4>
+        <ul>
+          <li><a href="audiophile.html">Hi-Fi Audiophile specialist</a></li>
+          <li><a href="tracking.html">Track repair parameters</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>DESTINATION</h4>
+        <ul>
+          <li>Vikerlase tn 3, 13615 Tallinn</li>
+          <li>Mon-Fri 09:00 - 18:00<br>Sat-Sun Closed</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Fast-Service OÜ. All rights reserved.</p>
+      <div>
+        <a href="gdpr.html">Privacy Policy (GDPR)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Core Controls -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initCaptcha();
+      initPricingAndServices();
+      initContactForm();
+    });
+
+    /**
+     * Calm Handwriting Captcha
+     */
+    let CAPTCHA_RESULT = 0;
+
+    function initCaptcha() {
+      const canvas = document.getElementById('captchaCanvas');
+      const resetBtn = document.querySelector('.btn-scope-refresh');
+      
+      if (!canvas) return;
+      generateMathCaptcha(canvas);
+      
+      if (resetBtn) {
+        resetBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          generateMathCaptcha(canvas);
+        });
+      }
+    }
+
+    function generateMathCaptcha(canvas) {
+      const ctx = canvas.getContext('2d');
+      const num1 = Math.floor(Math.random() * 8) + 2;
+      const num2 = Math.floor(Math.random() * 8) + 2;
+      CAPTCHA_RESULT = num1 + num2;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Soft wave background guidelines
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.05)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 15);
+      ctx.bezierCurveTo(40, 5, 80, 40, 130, 15);
+      ctx.stroke();
+
+      ctx.fillStyle = '#0284c7';
+      ctx.font = 'italic bold 18px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.rotate((Math.random() * 12 - 6) * Math.PI / 180);
+      ctx.fillText(`${num1} + ${num2} = ?`, 0, 0);
+      ctx.restore();
+    }
+
+    /**
+     * Database pricing extraction (values.txt)
+     */
+    function initPricingAndServices() {
+      fetch('../values.txt')
+        .then(response => {
+          if (!response.ok) throw new Error('Datalink down');
+          return response.text();
+        })
+        .then(text => {
+          const services = parseValuesTxt(text);
+          populateDOMValues(services);
+        })
+        .catch(err => {
+          console.warn('System utilizing standard coordinates cache:', err);
+        });
+    }
+
+    function parseValuesTxt(text) {
+      const lines = text.split('\n');
+      const services = {};
+      let inServicesSection = false;
+      
+      for (let line of lines) {
+        line = line.trim();
+        if (!line || line.startsWith('#')) continue;
+        
+        if (line === '[services]') {
+          inServicesSection = true;
+          continue;
+        }
+        
+        if (inServicesSection && line.includes('=')) {
+          const parts = line.split('=');
+          const key = parts[0].trim();
+          const specParts = parts[1].trim().split('|').map(p => p.trim());
+          
+          if (specParts.length >= 7) {
+            services[key] = {
+              priceSpec: specParts[0],
+              timeET: specParts[1],
+              timeEN: specParts[2],
+              timeRU: specParts[3],
+              nameET: specParts[4],
+              nameEN: specParts[5],
+              nameRU: specParts[6]
+            };
+          }
+        }
+      }
+      return services;
+    }
+
+    function populateDOMValues(services) {
+      document.querySelectorAll('[data-service-price]').forEach(el => {
+        const key = el.getAttribute('data-service-price');
+        if (services[key]) {
+          let spec = services[key].priceSpec;
+          if (spec.endsWith('+')) {
+            el.textContent = `from ${spec.slice(0, -1)} €`;
+          } else if (spec.includes('-')) {
+            const range = spec.split('-');
+            el.textContent = `${range[0]} € - ${range[1]} €`;
+          } else {
+            el.textContent = `${spec} €`;
+          }
+        }
+      });
+
+      document.querySelectorAll('[data-service-time]').forEach(el => {
+        const key = el.getAttribute('data-service-time');
+        if (services[key]) {
+          el.textContent = services[key].timeEN;
+        }
+      });
+    }
+
+    /**
+     * Soft form validation dispatcher (with offline-ready fallback trigger)
+     */
+    function initContactForm() {
+      const form = document.getElementById('contactForm');
+      const statusBox = document.getElementById('formStatus');
+      const offlineModal = document.getElementById('offlineModal');
+      const offlineText = document.getElementById('offlineText');
+      const mailtoBtn = document.getElementById('mailtoBtn');
+      const cancelBtn = document.getElementById('cancelModalBtn');
+      
+      if (!form) return;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        statusBox.style.display = 'none';
+        
+        const captchaInput = document.getElementById('captcha_code');
+        if (parseInt(captchaInput.value.trim(), 10) !== CAPTCHA_RESULT) {
+          statusBox.textContent = 'Oops, the verification code did not match. Please try again.';
+          statusBox.style.color = '#ef4444';
+          statusBox.style.backgroundColor = '#fef2f2';
+          statusBox.style.borderColor = '#fee2e2';
+          statusBox.style.display = 'block';
+          generateMathCaptcha(document.getElementById('captchaCanvas'));
+          captchaInput.value = '';
+          return;
+        }
+
+        const name = document.getElementById('client_name').value.trim();
+        const contact = document.getElementById('client_contact').value.trim();
+        const device = document.getElementById('device_category').value;
+        const issue = document.getElementById('issue_desc').value.trim();
+
+        const datalinkMessage = `ELECTRONICS DISPATCH FORM\n------------------------\nCLIENT: ${name}\nRETURN PATH: ${contact}\nHARDWARE: ${device}\nFAULTS: ${issue}\n------------------------\nGenerated at Tallinn Labs.`;
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            statusBox.textContent = 'Thank you! Your work request has been received.';
+            statusBox.style.color = '#0d9488';
+            statusBox.style.backgroundColor = '#f0fdfa';
+            statusBox.style.borderColor = '#ccfbf1';
+            statusBox.style.display = 'block';
+            form.reset();
+            generateMathCaptcha(document.getElementById('captchaCanvas'));
+          } else {
+            throw new Error('API routing missing');
+          }
+        })
+        .catch(() => {
+          console.warn('Network unreachable. Deploying secure local email client window...');
+          offlineText.value = datalinkMessage;
+          mailtoBtn.href = `mailto:info@fastservice.ee?subject=Electronics Work Dispatch&body=${encodeURIComponent(datalinkMessage)}`;
+          offlineModal.classList.add('show');
+        });
+      });
+
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+          offlineModal.classList.remove('show');
+        });
+      }
+    }
+  </script>
+</body>
+</html>
