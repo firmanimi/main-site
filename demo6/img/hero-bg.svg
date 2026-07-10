@@ -1,0 +1,26 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#09090A"/>
+  <ellipse cx="1210" cy="230" rx="470" ry="410" fill="url(#signalGlow)" opacity=".58"/>
+  <ellipse cx="190" cy="10" rx="420" ry="280" fill="url(#warmGlow)" opacity=".23"/>
+  <path d="M-80 700C255 518 414 857 716 659C1008 468 1194 728 1511 529" stroke="url(#beam)" stroke-opacity=".15"/>
+  <path d="M-60 732C270 550 426 885 735 689C1034 500 1216 752 1510 571" stroke="#FFB29C" stroke-opacity=".055"/>
+  <g opacity=".08">
+    <path d="M0 112H1440M0 116H1440M0 388H1440M0 392H1440M0 664H1440M0 668H1440" stroke="#FFF3EF"/>
+  </g>
+  <defs>
+    <radialGradient id="signalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 230) rotate(90) scale(410 470)">
+      <stop stop-color="#FF2F70" stop-opacity=".5"/>
+      <stop offset=".45" stop-color="#B51F38" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#09090A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(190 10) rotate(90) scale(280 420)">
+      <stop stop-color="#FF765D"/>
+      <stop offset="1" stop-color="#09090A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="-80" y1="700" x2="1511" y2="529" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5D52" stop-opacity="0"/>
+      <stop offset=".48" stop-color="#FF5D52"/>
+      <stop offset="1" stop-color="#FF2F70" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

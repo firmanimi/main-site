@@ -1,0 +1,149 @@
+# Implementation Plan: Multi-Language Technics Repair Website
+
+Create a modern, premium, airgap-compatible website for **Fast-Service** (TV and electronics repair) in three languages (Estonian, English, Russian). The site will support dynamic price extraction from `values.txt`, a layout toggle (basic vs. order tracker), a self-hosted client-side captcha, and a complete offline-first architecture.
+
+## Design Concept
+- **Theme**: Cinematic consumer-electronics service studio with near-black surfaces, warm coral/magenta signal accents, oversized editorial typography, asymmetric composition, and a widescreen scanline motif.
+- **Offline Compatibility**: All CSS, JS, and image assets will be stored locally. No external APIs, fonts, or CDNs will be queried.
+- **Language & Page Flow**:
+  - Root: `index.html` (Estonian landing), `audiophile.html` (Estonian high-end audio), and `gdpr.html` (Estonian GDPR page).
+  - `/est/`: Estonian pages (subfolder mirroring or redirecting/linking to root files).
+  - `/eng/`: English pages (`index.html`, `tracking.html`, `audiophile.html`, `gdpr.html`).
+  - `/rus/`: Russian pages (`index.html`, `tracking.html`, `audiophile.html`, `gdpr.html`).
+  - Tracking lives in the header navigation with the other global links. GDPR is linked in the footer.
+
+---
+
+## Proposed Folder Structure
+```text
+/
+├── index.html                  # Main landing (Estonian, basic)
+├── audiophile.html             # Audiophile page (Estonian, high-end audio)
+├── gdpr.html                   # GDPR Privacy page (Estonian, no cookies)
+├── values.txt                  # Simple text configuration for prices, times, and services
+├── css/
+│   ├── style.css               # Main visual stylesheet (shared elements, variables, typography)
+│   └── tracker.css             # Styles for order tracking UI
+├── js/
+│   ├── app.js                  # Main application script (handles language, forms, parsing values.txt)
+│   └── tracker.js              # Order tracking interaction logic
+├── img/
+│   ├── hero-bg.svg             # Premium abstract SVG background
+│   ├── og-preview.png          # Generated 1200x630px social media preview card
+│   └── favicon.ico             # Site favicon
+├── est/
+│   ├── index.html              # Estonia Basic Landing
+│   ├── tracking.html             # Estonia Tracker Landing
+│   ├── audiophile.html         # Estonia Audiophile Page
+│   └── gdpr.html               # Estonia GDPR Privacy Page
+├── eng/
+│   ├── index.html              # English Basic Landing
+│   ├── tracking.html             # English Tracker Landing
+│   ├── audiophile.html         # English Audiophile Page
+│   └── gdpr.html               # English GDPR Privacy Page
+└── rus/
+    ├── index.html              # Russian Basic Landing
+    ├── tracking.html             # Russian Tracker Landing
+    ├── audiophile.html         # Russian Audiophile Page
+    └── gdpr.html               # Russian GDPR Privacy Page
+```
+---
+
+## Detailed Component Specifications
+
+### 1. Dynamic Value Extraction (`values.txt`)
+We will use an extended, clean INI-like text format inside `values.txt` that defines both price specifications (ranges or starting prices) and estimated times in three languages:
+```ini
+# Fast-Service Service Price & Time List
+# Format: service_key = Price_Spec | Est_Time | Eng_Time | Rus_Time | Est_Name | Eng_Name | Rus_Name
+# Price_Spec can be a single number (e.g., 15), a range (e.g., 15-30), or a starting price (e.g., 80+)
+
+[services]
+tv_diagnostics = 15-30 | 1-2 tundi | 1-2 hours | 1-2 часа | Teleri diagnostika | TV diagnostics | Диагностика телевизора
+tv_screen = 80+ | 1-3 päeva | 1-3 days | 1-3 дня | Ekraani vahetus | Screen replacement | Замена экрана
+audio_repair = 30+ | 2-4 päeva | 2-4 days | 2-4 дня | Audiotehnika remont | Audio repair | Ремонт аудиоаппаратуры
+dvd_bluray = 25-50 | 1-2 päeva | 1-2 days | 1-2 дня | DVD/Blu-ray remont | DVD/Blu-ray repair | Ремонт DVD/Blu-ray
+remote_control = 10 | 30-60 minutit | 30-60 minutes | 30-60 минут | Puldi parandus | Remote control repair | Ремонт пультов
+board_repair = 45+ | 1-2 päeva | 1-2 days | 1-2 дня | Emaplaadi jootmine | Motherboard soldering | Пайка материнской платы
+lamp_repair = 15+ | 1-2 päeva | 1-2 days | 1-2 дня | Lampide remont | Lamp repair | Ремонт светильников и ламп
+hifi_repair = 40+ | 3-5 päeva | 3-5 days | 3-5 дней | Hi-Fi seadmete remont | Hi-Fi equipment repair | Ремонт Hi-Fi аппаратуры
+turntable_calibration = 50-100 | 1-2 päeva | 1-2 days | 1-2 дня | Vinüülplaadimängija kalibreerimine | Turntable calibration & setup | Настройка и калибровка виниловых проигрывателей
+tube_amp_recapping = 150+ | 3-7 päeva | 3-7 days | 3-7 дней | Lambivõimendi kondensaatorite vahetus (Recap) | Tube amplifier recapping & tuning | Рекапинг и настройка ламповых усилителей
+crossover_matching = 90+ | 2-4 päeva | 2-4 days | 2-4 дня | Kõlarite filtrite häälestamine ja parandus | Speaker crossover matching & upgrade | Подбор и апгрейд кроссоверов акустики
+```
+
+**JavaScript Integration**:
+- A helper function in `js/app.js` will fetch `values.txt` relative to the current folder.
+- It will parse each service line.
+- The **Price Spec** will be rendered dynamically based on language:
+  - If a price is `X+` (starting price), it will render as:
+    - Estonian: `alates X €`
+    - English: `from X €`
+    - Russian: `от X €`
+  - If a price is `X-Y` (range), it will render as `X € - Y €` in all languages.
+  - If a price is a single number `X`, it will render as `X €`.
+- The **Estimated Time** and **Service Name** will be picked based on the folder language (Estonian for `/` or `/est/`, English for `/eng/`, Russian for `/rus/`).
+- It will inject these values into designated slots (e.g., cards or lists) in the HTML dynamically, ensuring zero duplicate maintenance overhead.
+
+### 2. Layout Switch (Basic vs. Tracker Tab Switcher)
+- ### 2.5. Audiophile / High-End Equipment Section (`audiophile.html`)
+- A dedicated page in all three languages designed with a premium, boutique luxury dark aesthetic (charcoal backgrounds, warm gold/amber glowing accents, and elegant typography) to appeal to high-end audio enthusiasts.
+- **Trust Elements (Why choose us & not be afraid to trust expensive gear)**:
+  - *EST*: "Miks usaldada meile oma kallis audioaparatuur? Meil on täielikult kaitstud ESD-labor, spetsiaalsed mõõteriistad (Audio Precision analüsaatorid, kalibreeritud ostsilloskoobid) ja kasutame ainult originaalseid audiofiilse klassi komponente (Nichicon Gold, WIMA kondensaatorid jne). Protsess on täielikult kindlustatud ja soovi korral salvestame diagnoosi ja remondi videosse."
+  - *ENG*: "Why trust us with your high-end audio equipment? We operate a fully certified ESD-safe laboratory, utilize high-precision instrumentation (Audio Precision audio analyzers, calibrated digital oscilloscopes), and use exclusively genuine audiophile-grade components (Nichicon Fine Gold, WIMA film capacitors, matched tubes). The entire process is fully insured, and we can provide video verification of diagnostics and testing."
+  - *RUS*: "Почему стоит доверить нам вашу дорогостоящую аудиоаппаратуру? У нас полностью сертифицированная антистатическая (ESD) лаборатория, прецизионное измерительное оборудование (анализаторы Audio Precision, калиброванные осциллографы), и мы используем исключительно оригинальные компоненты аудиофильского класса (Nichicon Gold, конденсаторы WIMA, подобранные радиолампы). Весь процесс застрахован, по запросу предоставляем видеоотчет диагностики и тестирования."
+- **Dynamic Audiophile Prices**:
+  - High-end audio repair and upgrade services will be added to `values.txt` (e.g. turntable calibration, premium tube amplifier recapping, speaker crossover matching).
+  - These services will be parsed by `js/app.js` and dynamically listed on `audiophile.html` using the same localization mechanism.
+
+### 2.7. Premium Business & SEO Additions
+- **"How It Works" Timeline**: A visual step-by-step process timeline showing how a repair goes from drop-off to testing and 6-month warranty pickup (available on the main landing pages in all three languages).
+- **Supported Brands Grid**: A clean, highly optimized showcase listing major brands we service (Samsung, LG, Denon, Pioneer, Yamaha, etc.) to target long-tail brand-related Google search queries.
+- **FAQ Accordion Block**: A localized Q&A block covering warranty, diagnostics times, shipping, and home visits. This will be mapped to structured `FAQPage` JSON-LD schema markup on each page to gain direct rich text snippet positioning in Google Search results.
+- **Interactive Tracker Demo Codes**: Inside the order status tracker on the localized `tracking.html` pages, we will display example codes (e.g. `FN-TV-2026` for an in-progress repair, `FN-AUDIO-8041` for a ready-for-pickup repair) so the user can test the interactive progress timeline without having to query a real database.
+- **Separate GDPR Privacy Pages (`gdpr.html` / `no cookies`)**:
+  - The website will use **zero tracking cookies, analytical cookies, or localStorage tracking cookies**, making it fully GDPR compliant by design without requiring cookie consent popups.
+  - A clean, dedicated static page (`gdpr.html`) will be created in all three languages, outlining data minimization practices (only utilizing contact form data to process the specific service request) and linked from the page footer on all pages.
+
+### 3. Contact Form & Self-Hosted Captcha (No PHP)
+- **Form Fields**: Name, Contact (Email/Phone), Device Category (Dropdown), Issue Description.
+- **Mail Submission**:
+  - We will use a pure client-side JavaScript handler that sends the form data to an external form service (such as **Web3Forms** or **Formspree**).
+  - A configurable URL endpoint will be defined in `js/app.js` (e.g., `const FORM_SUBMIT_URL = 'https://api.web3forms.com/submit'`).
+  - **Airgap Fallback Handler**: If the submit fetch request fails (e.g., because the website is hosted in a strict airgapped network without internet access), the system will catch the network error and show an elegant modal:
+    - *"Võrguühendus puudub. Palun kopeerige andmed või klõpsake allolevat nuppu, et saata e-kiri otse aadressile info@fastservice.ee"* (No network connection. Please copy the data or click the button below to send an email directly to info@fastservice.ee).
+    - It will offer a beautifully styled action button that opens their default mail client using a pre-populated `mailto:info@fastservice.ee?subject=Remondipäring&body=...` query string containing their form details.
+- **Self-Hosted Captcha**:
+  - A custom self-hosted mathematical or slide-to-verify captcha generated dynamically via client-side JavaScript (no external APIs).
+  - Draws a randomized math question (e.g. `7 + 6 = ?`) inside a canvas element or styled SVG container to block web bots.
+  - Validation runs client-side prior to invoking the form submission API or fallback mailto.
+
+### 4. Responsive Design, SEO and Performance
+- **Responsiveness**: Fully fluid layouts designed using CSS Grid, Flexbox, and media queries. The design will automatically adapt and scale beautifully from compact mobile phones (320px+) to tablets (like iPads in both portrait and landscape orientation), notebooks, and large 4K desktop screens.
+- **Touch-Friendly UI**: Buttons, links, inputs, and the view switcher tab will have large, easy-to-tap hit targets (at least 44x44px) and comfortable padding to facilitate seamless touch navigation on mobile devices.
+- **SEO Optimization for Google & Search Engines (Maximized)**:
+  - **Hreflang & Multi-language Linking**: Every page will contain `<link rel="alternate" hreflang="et" href="..."/>`, `<link rel="alternate" hreflang="en" .../>`, and `<link rel="alternate" hreflang="ru" .../>` tags in the `<head>` to correctly signal multilingual variations to crawlers.
+  - **Canonical URL tags**: All files will contain explicit `<link rel="canonical" href="..."/>` tags to avoid duplicate content flags.
+  - **Local Business Schema Markup (JSON-LD)**: Each language version will embed rich Schema.org structured data (`ElectronicsRepairShop` / `LocalBusiness`) with parameters like name, local address, contact numbers, logo URL, price range indication, and geo-coordinates. This displays direct Google Rich Snippets.
+  - **OpenGraph & Twitter Card Metadata (Social Rich Previews)**:
+    - Comprehensive metadata tags (`og:title`, `og:description`, `og:image`, `og:type`, `og:locale`, `og:site_name`, `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`).
+    - We will use our `generate_image` tool to create a custom **1200x630px premium sharing preview image** (`/img/og-preview.png`) representing a futuristic, clean repair studio with high-tech branding.
+    - We will define explicit image dimensions via `og:image:width` (1200) and `og:image:height` (630) to force instant, large card preview generation on platforms like Telegram, Facebook, WhatsApp, and Discord on the very first link paste.
+  - **Heading Hierarchy & Semantic tags**: Strict nesting of SEO-optimised headers, ensuring one structural `<h1>` containing targeted keywords per page, followed by `<h2>` and `<h3>` tags.
+  - **Sitemap & Crawl Files**: We will create a premium `sitemap.xml` defining all index files and priorities, as well as a pre-configured `robots.txt` file guiding crawl bots.
+- **Airgap-Ready Performance (Boosts Core Web Vitals)**:
+  - zero external script/font/CSS blocking elements. High loading speed directly translates into high Google page performance rankings. All media assets (SVGs, raster icons) will use width/height dimensions to prevent Layout Shift (CLS).
+
+---
+
+## Verification Plan
+
+### Automated/Code Integrity Checks
+- Check console output for any errors during `values.txt` loading.
+- Validate XHTML compliance of all files.
+
+### Manual Verification
+- Verify that clicking the language switcher correctly navigates from `/eng/index.html` to `/rus/index.html`, etc.
+- Verify that modifying values in `values.txt` instantly changes pricing cards across all languages.
+- Test the tracker panel in `est/tracking.html`, `eng/tracking.html`, and `rus/tracking.html` by typing sample tracking IDs.
+- Test form submission with correct and incorrect captcha entries.
